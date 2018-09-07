@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html class="js no-touch svg inlinesvg svgclippaths no-ie8compat wf-opensans3a3002c4002c6002c8007cbreeserif-n4-inactive wf-inactive" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script type="text/javascript" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/form"></script><script type="text/javascript" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/track"></script><script type="text/javascript" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/track_002"></script><link rel="stylesheet" type="text/css" href="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/3b0ed.css" media="all">
+
+<meta charset="utf-8">
+
+<!--Page Title-->
+<title>PyImageSearch Gurus: Computer Vision and OpenCV Course</title>
+
+<!--Device Width Check-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<!--Meta Keywords and Description-->
+<meta name="description" content="PyImageSearch Gurus is a computer vision + OpenCV course that is guaranteed to make you awesome at solving real-world computer vision problems.">
+
+<!--Favicon-->
+<!--<link rel="shortcut icon" href="images/favicon.ico" title="Favicon" />-->
+
+<!--Fixes for Internet Explorer CSS3 and HTML5-->
+<!--[if gte IE 9]>
+<style type="text/css">
+    .gradient { filter: none!important;}
+</style>
+<![endif]-->
+
+<!--[if lt IE 9]>
+<script>
+  'article aside footer header nav section time'.replace(/\w+/g,function(n){document.createElement(n)})
+</script>
+<![endif]-->
+
+<!--Main CSS-->
+
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="https://www.pyimagesearch.com/static/templates/pyimagesearch-gurus/css/style_ie8.css" media="screen, projection">
+<![endif]-->
+
+<!--Icon Fonts-->
+
+
+<!--[if IE 7]>
+<link rel="stylesheet" href="https://www.pyimagesearch.com/static/templates/pyimagesearch-gurus/css/font-awesome-ie7.min.css">
+<![endif]-->
+
+<!--Google Webfonts-->
+<link href="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/css_002.css" rel="stylesheet" type="text/css">
+
+<!-- Custom Style from Adrian -->
+<style type="text/css">
+div.row h3{color: #797979 !important;}
+</style>
+
+
+<!-- Optimizely -->
+<script src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/916800548463326" async=""></script><script async="" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/fbevents.js"></script><script async="" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/analytics.js"></script><script type="text/javascript" async="" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/4768429.js"></script><script async="" type="text/javascript" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/mlt.js"></script><script type="text/javascript" async="" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/54220efd7ab7f03f7e000043.js"></script><script type="text/javascript" async="" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/mixpanel-2-latest.js"></script><script src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/2173410313.js"></script>
+
+<!-- start Mixpanel -->
+<script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+mixpanel.init("2486e0f021e92605d44d32fce5f1d826");
+</script>
+<!-- end Mixpanel -->
+<script id="omapi-script" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/api.js"></script><script type="application/ld+json">{"@context":"http://schema.org/","@id":"https://fast.wistia.net/embed/iframe/1fl655yx59","@type":"VideoObject","duration":"PT9M21S","name":"PyImageSearch Gurus Preview","thumbnailUrl":"https://embed-ssl.wistia.com/deliveries/ac0e3435c122148f6114c4464354d5941c136088.jpg?image_crop_resized=960x600","embedUrl":"https://fast.wistia.net/embed/iframe/1fl655yx59","uploadDate":"2016-06-01","description":"Learn more about PyImageSearch Gurus here:\n\n[https://www.pyimagesearch.com/pyimagesearch-gurus/](https://www.pyimagesearch.com/pyimagesearch-gurus/)"}</script><script type="text/javascript" async="" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/tagjs"></script><style type="text/css">
+  /* === Form-Specific Styles === */
+
+  #drip-15102 .drip-content,
+  #drip-15102 .drip-header {
+    background: rgb(109,157,8) !important;
+    background: rgba(109,157,8,0.80) !important;
+  }
+
+  #drip-15102 .drip-content h3 {
+    color: #8ab139 !important;
+    font-size: 21px !important;
+  }
+
+  #drip-15102 .drip-submit-button {
+    background-color: #8ab139 !important;
+    font-size: 12px !important;
+  }
+
+  #drip-15102 .drip-submit-button:hover {
+    background-color: #7ca721 !important;
+  }
+
+  #drip-15102 .drip-submit-button:active {
+    background-color: #628d07 !important;
+  }
+
+  #drip-15102 dl dt,
+  #drip-15102 .drip-content .drip-description,
+  #drip-15102 .drip-errors {
+    font-size: 13px !important;
+  }
+
+  #drip-15102 .drip-text-field {
+    font-size: 14px !important;
+  }
+
+  /* === Reset styles === */
+
+  .drip-tab h1,
+  .drip-tab h2,
+  .drip-tab h3,
+  .drip-tab div,
+  .drip-tab dl,
+  .drip-tab dt,
+  .drip-tab dd,
+  .drip-tab p,
+  .drip-tab a,
+  .drip-tab .drip-text-field,
+  .drip-tab .drip-text-field:focus,
+  .drip-tab .drip-submit-button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    float: none;
+    width: auto;
+    background-image: none;
+    letter-spacing: 0;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+    -webkit-text-shadow: none !important;
+       -moz-text-shadow: none !important;
+            text-shadow: none !important;
+  }
+
+  .drip-tab a {
+    text-decoration: none;
+  }
+
+  .drip-tab :focus {
+    outline: 0;
+  }
+
+  /* === Clearfix === */
+
+  .drip-clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+  * html .drip-clearfix             { zoom: 1; } /* IE6 */
+  *:first-child+html .drip-clearfix { zoom: 1; } /* IE7 */
+
+  /* === Main Container === */
+
+  .drip-tab-container * {
+    box-sizing: content-box;
+  }
+
+  /* === Content === */
+
+  .drip-tab .drip-content {
+    margin: 0;
+    padding: 5px;
+    width: 330px;
+    position: fixed;
+    font-size: 100%;
+    font: inherit;
+    z-index: 10000;
+    color: #333;
+    vertical-align: baseline;
+    text-align: left;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.25);
+       -moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.25);
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.25);
+  }
+
+  .drip-tab.bottom .drip-content {
+    bottom: -800px;
+    -webkit-border-radius: 8px 8px 0 0;
+       -moz-border-radius: 8px 8px 0 0;
+            border-radius: 8px 8px 0 0;
+    -webkit-transition: bottom 200ms ease-in;
+       -moz-transition: bottom 200ms ease-in;
+         -o-transition: bottom 200ms ease-in;
+            transition: bottom 200ms ease-in;
+  }
+
+  .drip-tab.bottom.left .drip-content {
+    left: 40px;
+  }
+
+  .drip-tab.bottom.right .drip-content {
+    right: 40px;
+  }
+
+  .drip-tab.image-left .drip-content,
+  .drip-tab.image-right .drip-content {
+    width: 510px;
+  }
+
+  .drip-tab.side .drip-content {
+    top: 10%;
+  }
+
+  .drip-tab.side.right .drip-content {
+    right: -550px;
+    -webkit-border-radius: 8px 0 0 8px;
+       -moz-border-radius: 8px 0 0 8px;
+            border-radius: 8px 0 0 8px;
+    -webkit-transition: right 200ms ease-in;
+       -moz-transition: right 200ms ease-in;
+         -o-transition: right 200ms ease-in;
+            transition: right 200ms ease-in;
+  }
+
+  .drip-tab.side.left .drip-content {
+    left: -550px;
+    -webkit-border-radius: 0 8px 8px 0;
+       -moz-border-radius: 0 8px 8px 0;
+            border-radius: 0 8px 8px 0;
+    -webkit-transition: left 200ms ease-in;
+       -moz-transition: left 200ms ease-in;
+         -o-transition: left 200ms ease-in;
+            transition: left 200ms ease-in;
+  }
+
+  .drip-tab.mobile .drip-content {
+    width: 100% !important;
+    bottom: -800px;
+    left: 0;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    -webkit-transition: bottom 200ms ease-in;
+       -moz-transition: bottom 200ms ease-in;
+         -o-transition: bottom 200ms ease-in;
+            transition: bottom 200ms ease-in;
+  }
+
+  .drip-tab.drip-scrollable .drip-content {
+    overflow-y: scroll;
+  }
+
+  /* === Header === */
+
+  .drip-tab .drip-header {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    font-size: 100%;
+    font: inherit;
+    z-index: 10000;
+    color: #333;
+    vertical-align: baseline;
+    text-align: left;
+    -webkit-border-radius: 8px 8px 0 0;
+       -moz-border-radius: 8px 8px 0 0;
+            border-radius: 8px 8px 0 0;
+    -webkit-box-shadow: 0px 10px 28px rgba(0,0,0,0.36);
+       -moz-box-shadow: 0px 10px 28px rgba(0,0,0,0.36);
+            box-shadow: 0px 10px 28px rgba(0,0,0,0.36);
+  }
+
+  .drip-tab.bottom .drip-header {
+    width: 330px;
+    bottom: 0;
+    -webkit-transition: bottom 200ms ease-in;
+       -moz-transition: bottom 200ms ease-in;
+         -o-transition: bottom 200ms ease-in;
+            transition: bottom 200ms ease-in;
+  }
+
+  .drip-tab.bottom .drip-header.drip-hidden {
+    bottom: -800px;
+  }
+
+  .drip-tab.bottom.left .drip-header {
+    left: 40px;
+  }
+
+  .drip-tab.bottom.right .drip-header {
+    right: 40px;
+  }
+
+  .drip-tab.bottom.image-left .drip-header,
+  .drip-tab.bottom.image-right .drip-header {
+    width: 510px;
+  }
+
+  .drip-tab.side .drip-header {
+    width: 330px;
+    top: 10%;
+  }
+
+  .drip-tab.side.right .drip-header {
+    right: -100px;
+    -webkit-transition: right 400ms ease-in;
+       -moz-transition: right 400ms ease-in;
+         -o-transition: right 400ms ease-in;
+            transition: right 400ms ease-in;
+    -webkit-transform: rotate(-90deg) !important;
+       -moz-transform: rotate(-90deg) !important;
+        -ms-transform: rotate(-90deg) !important;
+         -o-transform: rotate(-90deg) !important;
+            transform: rotate(-90deg) !important;
+    -webkit-transform-origin: right center;
+       -moz-transform-origin: right center;
+         -o-transform-origin: right center;
+            transform-origin: right center;
+  }
+
+  .drip-tab.side.right .drip-header.drip-hidden {
+    right: -100px;
+  }
+
+  .drip-tab.side.left .drip-header {
+    left: -100px;
+    -webkit-transition: left 400ms ease-in;
+       -moz-transition: left 400ms ease-in;
+         -o-transition: left 400ms ease-in;
+            transition: left 400ms ease-in;
+    -webkit-transform: rotate(90deg) !important;
+       -moz-transform: rotate(90deg) !important;
+        -ms-transform: rotate(90deg) !important;
+         -o-transform: rotate(90deg) !important;
+            transform: rotate(90deg) !important;
+    -webkit-transform-origin: left center;
+       -moz-transform-origin: left center;
+         -o-transform-origin: left center;
+            transform-origin: left center;
+  }
+
+  .drip-tab.side.left .drip-header.drip-hidden {
+    left: -100px;
+  }
+
+  .drip-tab.mobile .drip-header {
+    width: 100% !important;
+    bottom: 0;
+    left: 0;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    -webkit-transition: bottom 200ms ease-in;
+       -moz-transition: bottom 200ms ease-in;
+         -o-transition: bottom 200ms ease-in;
+            transition: bottom 200ms ease-in;
+  }
+
+  .drip-tab.mobile .drip-header.drip-hidden {
+    bottom: -300px;
+  }
+
+  /* === Header Toggle === */
+
+  .drip-tab .drip-toggle {
+    display: block;
+    text-decoration: none;
+    padding: 10px 50px 10px 20px; /* extra padding for the arrow */
+  }
+
+  /* === Teaser === */
+
+  .drip-tab .drip-header h2 {
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    color: #fff !important;
+    clear: none !important;
+    letter-spacing: 0 !important;
+    width: auto !important;
+  }
+
+  /* === Arrows === */
+
+  .drip-tab .drip-header span.drip-arrow {
+    display: block;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    top: 17px;
+    right: 32px;
+  }
+
+  /* === Panel === */
+
+  .drip-tab .drip-content > div.drip-panel {
+    padding: 15px;
+    background-color: #fff;
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;
+  }
+
+  /* === Powered By === */
+
+  .drip-tab .drip-powered-by {
+    padding: 8px;
+    margin-bottom: -5px;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: left;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 16px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .drip-tab .drip-powered-by a {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+    letter-spacing: 1px;
+    margin-left: 6px;
+  }
+
+  /* === Content Headings & Paragraphs === */
+
+  .drip-tab .drip-content h3 {
+    display: block;
+    margin: 0 20px 0 0 !important;
+    padding: 0 0 15px 0 !important;
+    line-height: 1.4 !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    color: #4477bd !important;
+    clear: none !important;
+  }
+
+  .drip-tab .drip-content .drip-description {
+    margin: 0;
+    padding: 0 0 20px 0;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .drip-tab.image-left .drip-content .drip-description {
+    margin-left: 170px;
+  }
+
+  .drip-tab.image-right .drip-content .drip-description {
+    margin-right: 170px;
+  }
+
+  @media screen and (max-width: 510px) {
+    .drip-tab.image-left .drip-content .drip-description {
+      margin-left: 0; /* 120px; */
+    }
+
+    .drip-tab.image-right .drip-content .drip-description {
+      margin-right: 0; /* 120px; */
+    }
+  }
+
+  .drip-tab .drip-content .drip-description a {
+    text-decoration: underline;
+  }
+
+  .drip-tab .drip-content .drip-description em {
+    font-style: italic;
+  }
+
+  .drip-tab .drip-content .drip-description ul,
+  .drip-tab .drip-content .drip-description ol {
+    list-style-position: outside;
+    margin: 8px 0 8px 30px;
+  }
+
+  .drip-tab .drip-content .drip-description ul li
+  .drip-tab .drip-content .drip-description ol li {
+    padding: 0;
+  }
+
+  .drip-tab .drip-content img.drip-image {
+    margin-bottom: 20px;
+  }
+
+  .drip-tab.image-left .drip-content img.drip-image {
+    float: left;
+    width: 150px;
+  }
+
+  .drip-tab.image-right .drip-content img.drip-image {
+    float: right;
+    width: 150px;
+  }
+
+  @media screen and (max-width: 510px) {
+    .drip-tab.image-left .drip-content img.drip-image {
+      margin-right: 20px;
+      width: 100px;
+    }
+
+    .drip-tab.image-right .drip-content img.drip-image {
+      margin-left: 20px;
+      width: 100px;
+    }
+  }
+
+  .drip-tab .drip-content a.drip-close {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: -1px 0 0 0;
+    float: right;
+    font-size: 28px;
+    line-height: 15px;
+    font-weight: normal;
+    color: #333;
+    opacity: 0.4;
+  }
+
+  .drip-tab .drip-content a.drip-close:hover {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.6;
+  }
+
+  /* === Content Subscribe Form === */
+
+  .drip-tab form {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .drip-tab dl {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .drip-tab dl dt {
+    display: block;
+    padding: 0 0 5px 0;
+    font-weight: bold;
+  }
+
+  .drip-tab dl.no-labels dt {
+    display: none;
+  }
+
+  .drip-tab dl dd {
+    display: block;
+    padding: 0 0 10px 0;
+  }
+
+  .drip-tab .drip-text-field {
+    margin: 0 !important;
+    padding: 6px !important;
+    height: auto !important;
+    width: 100% !important;
+    color: #333 !important;
+    background-color: #fff !important;
+    border: 1px solid #c4c4c4 !important;
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.18) !important;
+       -moz-box-shadow: inset 0 0 3px rgba(0,0,0,0.18) !important;
+            box-shadow: inset 0 0 3px rgba(0,0,0,0.18) !important;
+    -webkit-border-radius: 4px !important;
+       -moz-border-radius: 4px !important;
+            border-radius: 4px !important;
+    -webkit-box-sizing: border-box !important;
+       -moz-box-sizing: border-box !important;
+        -ms-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+    background-image: none !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .drip-tab .drip-text-field::-webkit-input-placeholder { /* WebKit browsers */
+    color: #999999 !important;
+  }
+  .drip-tab .drip-text-field:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #999999 !important;
+  }
+  .drip-tab .drip-text-field::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #999999 !important;
+  }
+  .drip-tab .drip-text-field:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #999999 !important;
+  }
+
+  .drip-tab .drip-text-field:focus {
+    border-color: #a4a4a4 !important;
+    outline: 0;
+    background-image: none;
+    background-color: #fff !important;
+  }
+
+  .drip-tab.mobile .drip-text-field {
+    font-size: 16px;
+  }
+
+  .drip-tab .drip-errors {
+    padding: 5px 0 0 0;
+    font-weight: normal;
+    color: red;
+  }
+
+  .drip-tab .drip-submit-button {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    padding: 3px 12px !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    line-height: 1.6 !important;
+    border: 0 !important;
+    -webkit-border-radius: 15px !important;
+       -moz-border-radius: 15px !important;
+            border-radius: 15px !important;
+    cursor: pointer !important;
+    background-image: none !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto;
+  }
+
+  .drip-tab .drip-submit-button:hover {
+    background-image: none !important;
+  }
+
+  .drip-tab .drip-submit-button:active {
+    background-image: none !important;
+  }
+
+</style><img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/a_003.gif" width="1" height="1" border="0"><img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/a.html" width="1" height="1" border="0"><img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/a_002.gif" width="1" height="1" border="0"><img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/a.gif" width="1" height="1" border="0"><img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/tr.gif" width="1" height="1" border="0"><img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/seg_002.gif" width="1" height="1" border="0"><img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/tr_003.gif" width="1" height="1" border="0"><img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/seg.gif" width="1" height="1" border="0"><img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/tr_002.gif" width="1" height="1" border="0"><img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/seg_003.gif" width="1" height="1" border="0"><script src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/legacy-api.js" async=""></script><link rel="stylesheet" href="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/css.css" media="all"><script src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/webfont.js" async=""></script></head>
+<body>
+
+<div style="width: 300px; height: 300px; top: 0px; right: 0px; background: url('https://www.pyimagesearch.com/static/templates/practical-python-and-opencv/images/book_banner_versions.png') 70px -70px no-repeat; position: absolute; z-index: 9999;"></div>
+
+
+
+<!--Start of Product Banner-->
+<section id="banner" role="banner">
+<div class="row" style="padding-top: 25px; padding-bottom: 25px;">
+
+<!--Start of Product Banner Description-->
+<div style="text-align: center;">
+<!--Start of Banner Title-->
+<h1 style="font-size: 4.0em;">You can become a computer vision + OpenCV Guru.</h1>
+<!--End of Banner Title-->
+
+<p style="font-size: 24px;">PyImageSearch Gurus is a <strong><em>course</em></strong> and <strong><em>community</em></strong> designed to take you from computer vision <em>beginner</em> to <em>expert</em>. <strong>Guaranteed.</strong></p>
+
+<!--Start of Buy Button-->
+<div class="button_buy" style="padding-top: 10px;">
+<a id="top_buy_btn" href="#" class="manual-optin-trigger" data-optin-slug="kizfm1tpclo79dji" title="Learn more about PyImageSearch Gurus" style="font-size: 20px;"><span class="button_price">Give it a try!</span> <span class="button_text">Grab your (free) course syllabus PDF + 10 sample lessons.</span></a>
+<p style="font-size: 14px;"><em>"This course is the best investment in time and money that I've made in a long time." — Skip Snaith</em></p>
+</div>
+<!--End of Buy Button-->
+
+</div>
+<!--End of Product Banner Description-->
+
+
+</div>
+</section>
+<!--End of Product Banner-->
+
+
+<!--Start of Main Content-->
+<article role="main">
+<div id="main_content">
+
+<section id="featured_in" class="background_grey">
+<div class="row" style="padding-top: 15px; padding-bottom: 15px;">
+	<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/credibility_logos.png" style="width: 100%;" alt="PyImageSearch Gurus has been featured on OpenCV.org, LifeHacker, Kickstarter, and more.">
+</div>
+</section>
+
+<div class="row" style="padding-top: 25px; padding-bottom: 0px;">
+<h2 class="section_title" style="font-size: 37px; font-weight: bold; background-image: none;">
+	<span style="font-weight: normal;">Learning computer vision &amp; OpenCV used to be <strong><em>hard.</em></strong></span><br>
+	But not anymore.
+</h2>
+
+<script charset="ISO-8859-1" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/E-v1.js" async=""></script><div class="wistia_responsive_padding" style="padding:62.5% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_video_foam_dummy" data-source-container-id="wistia-1fl655yx59-1" style="border: 0px none; display: block; height: 0px; margin: 0px; padding: 0px; position: static; visibility: hidden; width: auto;"></div><div class="wistia_embed wistia_async_1fl655yx59 videoFoam=true wistia_embed_initialized" style="height: 588px; width: 940px;" id="wistia-1fl655yx59-1"><div id="wistia_chrome_29" class="w-chrome" style="display: inline-block; height: 588px; margin: 0px; padding: 0px; position: relative; vertical-align: top; width: 940px; outline: medium none; overflow: hidden; box-sizing: content-box;"><div id="wistia_grid_36_wrapper" style="display: block; width: 940px; height: 588px;"><div id="wistia_grid_36_above" style="height: 0px; font-size: 0px; line-height: 0px;"> </div><div id="wistia_grid_36_main" style="width: 940px; left: 0px; height: 588px; margin-top: 0px;"><div id="wistia_grid_36_behind"></div><div id="wistia_grid_36_center" style="width: 100%; height: 100%;"><div class="w-video-wrapper w-css-reset" style="height: 100%; position: absolute; top: 0px; width: 100%; background-color: rgb(0, 0, 0);"><video id="wistia_simple_video_71" crossorigin="anonymous" style="background: transparent none repeat scroll 0% 0%; display: block; height: 100%; position: static; visibility: visible; width: 100%; object-fit: fill;" poster="https://fast.wistia.com/assets/images/blank.gif" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/file.mp4" controlslist="nodownload" playsinline="" preload="metadata" type="video/mp4" x-webkit-airplay="allow"><source src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/file.mp4" type="video/mp4"></video></div><div class="w-ui-container" style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"><style id="wistia_44_style" type="text/css" class="wistia_injected_style">
+      #wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset{font-size:14px;}
+#wistia_chrome_29 #wistia_grid_36_wrapper div.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper span.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper ul.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper li.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper label.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper button.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper img.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper a.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper svg.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper p.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper a.w-css-reset{border:0;}
+#wistia_chrome_29 #wistia_grid_36_wrapper p.w-css-reset{margin:1.4em 0;}
+#wistia_chrome_29 #wistia_grid_36_wrapper a.w-css-reset{display:inline;}
+#wistia_chrome_29 #wistia_grid_36_wrapper span.w-css-reset{display:inline;}
+#wistia_chrome_29 #wistia_grid_36_wrapper svg.w-css-reset{display:inline;}
+#wistia_chrome_29 #wistia_grid_36_wrapper ul.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased;list-style-type:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper ol.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased;list-style-type:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper li.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased;list-style-type:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper ul:before.w-css-reset{display:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper ol:before.w-css-reset{display:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper li:before.w-css-reset{display:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper ul:after.w-css-reset{display:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper ol:after.w-css-reset{display:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper li:after.w-css-reset{display:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper label.w-css-reset{background-attachment:scroll;background-color:transparent;background-image:none;background-position:0 0;background-repeat:no-repeat;background-size:100% 100%;float:none;outline:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper button.w-css-reset{background-attachment:scroll;background-color:transparent;background-image:none;background-position:0 0;background-repeat:no-repeat;background-size:100% 100%;border:0;border-radius:0;outline:none;position:static}
+#wistia_chrome_29 #wistia_grid_36_wrapper img.w-css-reset{border:0;display:inline-block;vertical-align:top;border-radius:0;outline:none;position:static}
+      #wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree {font-size:14px;}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree div{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree span{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree ul{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree li{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree label{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree button{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree img{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree a{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree svg{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree p{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree a{border:0;}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree p{margin:1.4em 0;}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree a{display:inline;}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree span{display:inline;}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree svg{display:inline;}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree ul{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased;list-style-type:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree ol{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased;list-style-type:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree li{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:none;min-width:none;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased;list-style-type:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree ul:before{display:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree ol:before{display:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree li:before{display:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree ul:after{display:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree ol:after{display:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree li:after{display:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree label{background-attachment:scroll;background-color:transparent;background-image:none;background-position:0 0;background-repeat:no-repeat;background-size:100% 100%;float:none;outline:none}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree button{background-attachment:scroll;background-color:transparent;background-image:none;background-position:0 0;background-repeat:no-repeat;background-size:100% 100%;border:0;border-radius:0;outline:none;position:static}
+#wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-tree img{border:0;display:inline-block;vertical-align:top;border-radius:0;outline:none;position:static}
+      #wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-max-width-none-important{max-width:none!important}
+      #wistia_chrome_29 #wistia_grid_36_wrapper .w-css-reset-button-important{border-radius:0!important;color:#fff!important;}
+    </style><div class="w-vulcan-v2 w-css-reset" style="box-sizing: border-box; cursor: default; height: 100%; left: 0px; position: absolute; visibility: visible; top: 0px; width: 100%;" id="w-vulcan-v2-35" role="region" aria-label="Video" tabindex="0"><div class="w-vulcan--background w-css-reset" style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"><div class="w-css-reset" style="pointer-events: auto;" data-handle="statusBar"></div><div class="w-css-reset" style="pointer-events: auto;" data-handle="thumbnail"><img class="w-css-reset" srcset="https://embedwistia-a.akamaihd.net/deliveries/ac0e3435c122148f6114c4464354d5941c136088.jpg?image_crop_resized=640x400 320w, https://embedwistia-a.akamaihd.net/deliveries/ac0e3435c122148f6114c4464354d5941c136088.jpg?image_crop_resized=640x400 640w, https://embedwistia-a.akamaihd.net/deliveries/ac0e3435c122148f6114c4464354d5941c136088.jpg?image_crop_resized=960x600 960w, https://embedwistia-a.akamaihd.net/deliveries/ac0e3435c122148f6114c4464354d5941c136088.jpg?image_crop_resized=960x600 1280w, https://embedwistia-a.akamaihd.net/deliveries/ac0e3435c122148f6114c4464354d5941c136088.jpg?image_crop_resized=960x600 1920w, https://embedwistia-a.akamaihd.net/deliveries/ac0e3435c122148f6114c4464354d5941c136088.jpg?image_crop_resized=960x600 3840w" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/ac0e3435c122148f6114c4464354d5941c136088.jpg" style="border-width: 0px; border-style: solid; border-color: rgb(0, 0, 0); box-sizing: content-box; height: 588px; left: 0px; top: 0px; width: 940px; display: block; background: rgb(0, 0, 0) none repeat scroll 0% 0%;" alt="Video Thumbnail"></div></div><div class="w-vulcan-overlays-table w-css-reset" style="display: table; pointer-events: none; position: absolute; width: 100%;"><div class="w-vulcan-overlays--left w-css-reset" style="display: table-cell; vertical-align: top; position: relative; width: 0px;"><div style="height: 554px;" class="w-css-reset"></div></div><div class="w-vulcan-overlays--center w-css-reset" style="display: table-cell; vertical-align: top; position: relative; width: 100%;"><div style="height: 554px;" class="w-css-reset"><div class="w-css-reset" style="pointer-events: auto;" data-handle="bigPlayButton"><div class="w-bpb-wrapper w-css-reset w-css-reset-tree" style="display: block; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%);"><button class="w-big-play-button w-css-reset-button-important w-vulcan-v2-button" style="cursor: pointer; height: 80px; background: rgba(22, 159, 230, 0.8) none repeat scroll 0% 0%; box-shadow: none; width: 125px;" aria-label="Play"><svg x="0px" y="0px" viewBox="0 0 125 80" enable-background="new 0 0 125 80" style="fill: rgb(255, 255, 255); width: 100%; height: 100%; left: 0px; top: 0px; stroke-width: 0px;"><rect fill-rule="evenodd" clip-rule="evenodd" fill="none" width="125" height="80"></rect><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="53,22 53,58 79,40"></polygon></svg></button></div></div><div class="w-css-reset" style="pointer-events: auto;" data-handle="clickForSoundButton"><div class="w-css-reset w-css-reset-tree" style="display: none; height: 100%; left: 0px; pointer-events: none; position: absolute; top: 0px; width: 100%;"><button style="background: rgba(0, 0, 0, 0.4) none repeat scroll 0% 0%; border: 2px solid transparent; border-radius: 32.4px; cursor: pointer; height: 42px; line-height: 42px; outline: medium none; padding-right: 12px; pointer-events: auto; position: absolute; right: 16px; text-align: left; top: 16px;" class="w-vulcan-v2-button"><svg viewBox="0 0 237 237" style="height: 38.4px; margin-top: 0.6px; vertical-align: top; width: 42px;"><style>
+      @keyframes VOLUME_SMALL_WAVE_FLASH {
+          0% { opacity: 0; }
+         33% { opacity: 1; }
+         66% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      @keyframes VOLUME_LARGE_WAVE_FLASH {
+          0% { opacity: 0; }
+         33% { opacity: 1; }
+         66% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      .volume__small-wave {
+        animation: VOLUME_SMALL_WAVE_FLASH 2s infinite;
+        opacity: 0;
+      }
+
+      .volume__large-wave {
+        animation: VOLUME_LARGE_WAVE_FLASH 2s infinite .3s;
+        opacity: 0;
+      }
+    </style><polygon fill="white" points="88 107 65 107 65 131 89 131 112 154 112 84"></polygon><g fill="none" stroke="white" stroke-width="10" stroke-linecap="round"><path class="volume__small-wave" d="M 142 86 C 151 107 151 130 142 151"></path><path class="volume__large-wave" d="M 165 74 C 178 97 178 140 165 163"></path></g></svg><div style="color: white; display: inline-block; font-family: WistiaPlayerOverpass,Helvetica,sans-serif; font-size: 15.6px; margin-left: -4.8px; margin-top: -0.9px; vertical-align: top; white-space: nowrap; width: 36%;">Click for sound</div></button></div></div><div class="w-css-reset" style="pointer-events: auto;" data-handle="loadingIndicator"></div><div class="w-css-reset" style="pointer-events: auto;" data-handle="playPauseNotifier"></div></div></div><div class="w-vulcan-overlays--right w-css-reset" style="display: table-cell; vertical-align: top; position: relative; width: 0px;"><div style="height: 554px;" class="w-css-reset"></div></div></div><div class="w-bottom-bar w-css-reset" style="bottom: 0px; border-collapse: collapse; display: table; height: 34px; left: 0px; opacity: 1; pointer-events: none; position: absolute; table-layout: auto; transition: opacity 0s ease 0s; width: 100%;"><div class="w-bottom-bar-upper w-css-reset" style="display: none;"><div class="w-css-reset" style="height: 100%; pointer-events: auto;" data-handle="upperPlaybar"><div class="w-playbar-wrapper w-css-reset w-css-reset-tree" role="slider" aria-label="Playbar" aria-orientation="horizontal" aria-valuenow="0" aria-valuemin="0" aria-valuemax="561.482" aria-valuetext="0:00" tabindex="0" style="cursor: pointer; height: 100%; outline: medium none; position: relative;"><div style="display: block; height: 100%; overflow: hidden; pointer-events: none; position: relative; width: 940px;"><canvas width="940" height="16" style="height: 16px; left: 0px; pointer-events: none; position: absolute; top: 0px; width: 940px;"></canvas></div><div class="w-playbar__hoverMarker" style="background: transparent linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.12) 100%) repeat scroll 0% 0%; display: none; height: 100%; left: -36px; pointer-events: none; position: absolute; top: 0px; width: 36px;"></div><div class="w-playbar__focus-border" style="border: 2px solid rgb(255, 255, 255); display: none; height: 100%; left: 0px; pointer-events: none; position: absolute; top: 0px; width: 100%;"></div></div></div></div><div class="w-bottom-bar-lower w-css-reset"><div class="w-bottom-bar-left w-css-reset" style="display: table-cell; vertical-align: top; position: relative; width: 0px;"><div class="w-bottom-bar-left-inner w-css-reset" style="height: 34px; position: relative; white-space: nowrap;"><div class="w-css-reset" style="display: inline-block; vertical-align: top; pointer-events: auto;" data-handle="smallPlayButton"><div class="w-vulcan-button-wrapper w-css-reset" style="display: inline-block; height: 34px; position: relative; vertical-align: top; width: 50px;"><button class="w-vulcan-v2-button w-css-reset w-css-reset-tree w-css-reset-button-important" style="background: rgba(22, 159, 230, 0.95) none repeat scroll 0% 0%; box-shadow: none; cursor: pointer; height: 100%; position: relative; width: 100%; transition: opacity 400ms ease 0s; opacity: 1;" aria-label="Play" title="Play"><div class="w-vulcan-icon-wrapper" style="box-sizing: border-box; height: 100%;" data-handle="smallPlayButton"><svg x="0px" y="0px" viewBox="0 0 50 34" enable-background="new 0 0 50 34" style="fill: rgb(255, 255, 255); width: 100%; height: 100%; left: 0px; top: 0px; stroke-width: 0px;" class="w-css-reset w-css-reset-tree"><polygon points="29.5,17 20,25 20,9"></polygon></svg></div></button></div></div></div></div><div class="w-bottom-bar-middle w-css-reset" style="display: table-cell; vertical-align: top; position: relative; width: 100%;"><div class="w-bottom-bar-middle-inner w-css-reset" style="height: 34px; position: relative; white-space: nowrap;"><div class="w-css-reset" style="height: 100%; pointer-events: auto;" data-handle="lowerPlaybar"><div class="w-playbar-wrapper w-css-reset w-css-reset-tree" role="slider" aria-label="Playbar" aria-orientation="horizontal" aria-valuenow="0" aria-valuemin="0" aria-valuemax="561.482" aria-valuetext="0:00" tabindex="0" style="cursor: pointer; height: 100%; outline: medium none; position: relative;"><div style="display: block; height: 100%; overflow: hidden; pointer-events: none; position: relative; width: 770px;"><canvas width="770" height="34" style="height: 34px; left: 0px; pointer-events: none; position: absolute; top: 0px; width: 770px;"></canvas></div><div class="w-playbar__hoverMarker" style="background: transparent linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.12) 100%) repeat scroll 0% 0%; display: none; height: 100%; left: -36px; pointer-events: none; position: absolute; top: 0px; width: 36px;"></div><div class="w-playbar__focus-border" style="border: 2px solid rgb(255, 255, 255); display: none; height: 100%; left: 0px; pointer-events: none; position: absolute; top: 0px; width: 100%;"></div></div></div></div></div><div class="w-bottom-bar-right w-css-reset" style="display: table-cell; vertical-align: top; position: relative; width: 0px;"><div class="w-bottom-bar-right-inner w-css-reset" style="height: 34px; position: relative; white-space: nowrap;"><div class="w-css-reset" style="display: inline-block; vertical-align: top; pointer-events: auto;" data-handle="volumeButton"><div class="w-vulcan-button-wrapper w-css-reset" style="display: inline-block; height: 34px; position: relative; vertical-align: top; width: 40px;"><button class="w-vulcan-v2-button w-css-reset w-css-reset-tree w-css-reset-button-important" style="background: rgba(22, 159, 230, 0.95) none repeat scroll 0% 0%; box-shadow: none; cursor: pointer; height: 100%; position: relative; width: 100%; transition: opacity 400ms ease 0s; opacity: 1;" aria-label="Mute" title="Mute"><div class="w-vulcan-icon-wrapper" style="box-sizing: border-box; height: 100%;" data-handle="volumeButton"><svg x="0px" y="0px" viewBox="0 0 40 34" enable-background="new 0 0 40 34" style="fill: rgb(255, 255, 255); width: 100%; height: 100%; left: 0px; top: 0px; stroke-width: 0px;"><g style="transform: translateX(1.25px); transition: transform 100ms ease 0s;"><g><path d="M13.8,14.2c-0.5,0.5-1.4,0.8-2,0.8h-1.6C9.5,15,9,15.5,9,16.2v1.6c0,0.7,0.5,1.2,1.2,1.2h1.6c0.7,0,1.6,0.4,2,0.8l2.3,2.3c0.5,0.5,0.8,0.3,0.8-0.4v-9.6c0-0.7-0.4-0.8-0.8-0.4L13.8,14.2z"></path></g><g><path fill="none" stroke="#ffffff" stroke-line-cap="round" stroke-miterlimit="10" stroke-width="2" d="M22,11.7c0,0,1.1,2.5,1.1,5s-1.1,5-1.1,5" style="opacity: 1; transition: opacity 100ms ease 0s;"></path><path fill="none" stroke="#ffffff" stroke-line-cap="round" stroke-miterlimit="10" stroke-width="2" d="M25.8,9.2c0,0,1.7,3.8,1.7,7.5c0,3.7-1.7,7.5-1.7,7.5" style="opacity: 1; transition: opacity 100ms ease 0s;"></path></g><g style="opacity: 0; transition: opacity 100ms ease 0s;"><line fill="none" stroke="#ffffff" stroke-line-cap="round" stroke-miterlimit="10" stroke-width="1.8102" x1="19.2" y1="15" x2="23.2" y2="19"></line><line fill="none" stroke="#ffffff" stroke-line-cap="round" stroke-miterlimit="10" stroke-width="1.8102" x1="19.2" y1="19" x2="23.2" y2="15"></line></g></g></svg></div></button></div></div><div class="w-css-reset" style="display: inline-block; vertical-align: top; pointer-events: auto;" data-handle="settingsButton"><div class="w-vulcan-button-wrapper w-css-reset" style="display: inline-block; height: 34px; position: relative; vertical-align: top; width: 40px;"><button class="w-vulcan-v2-button w-css-reset w-css-reset-tree w-css-reset-button-important" style="background: rgba(22, 159, 230, 0.95) none repeat scroll 0% 0%; box-shadow: none; cursor: pointer; height: 100%; position: relative; width: 100%; transition: opacity 400ms ease 0s; opacity: 1;" aria-label="Settings" title="Settings"><div class="w-vulcan-icon-wrapper" style="box-sizing: border-box; height: 100%;" data-handle="settingsButton"><svg x="0px" y="0px" viewBox="0 0 40 34" enable-background="new 0 0 40 34" style="fill: rgb(255, 255, 255); width: 100%; height: 100%; left: 0px; top: 0px; stroke-width: 0px;"><g><g><path d="M28.3,16.4h-1.9c-0.4,0-0.8-0.3-0.9-0.7l-0.4-1.1c-0.2-0.3-0.1-0.8,0.2-1.1l1.3-1.3c0.3-0.3,0.3-0.7,0-1l-0.4-0.4c-0.3-0.3-0.7-0.3-1,0l-1.3,1.3c-0.3,0.3-0.8,0.3-1.1,0.1l-1.1-0.5c-0.4-0.1-0.7-0.5-0.7-0.9V9.1c0-0.4-0.3-0.7-0.7-0.7h-0.6c-0.4,0-0.7,0.3-0.7,0.7v1.7c0,0.4-0.3,0.8-0.7,0.9l-1.2,0.5c-0.3,0.2-0.8,0.1-1.1-0.2l-1.2-1.2c-0.3-0.3-0.7-0.3-1,0l-0.4,0.4c-0.3,0.3-0.3,0.7,0,1l1.2,1.2c0.3,0.3,0.3,0.8,0.1,1.1l-0.5,1.2c-0.1,0.4-0.5,0.7-0.9,0.7h-1.6c-0.4,0-0.7,0.3-0.7,0.7v0.6c0,0.4,0.3,0.7,0.7,0.7h1.6c0.4,0,0.8,0.3,0.9,0.7l0.5,1.2c0.2,0.3,0.1,0.8-0.1,1.1l-1.2,1.2c-0.3,0.3-0.3,0.7,0,1l0.4,0.4c0.3,0.3,0.7,0.3,1,0l1.2-1.2c0.3-0.3,0.8-0.3,1.1-0.2l1.2,0.5c0.4,0.1,0.7,0.5,0.7,0.9v1.7c0,0.4,0.3,0.7,0.7,0.7h0.6c0.4,0,0.7-0.3,0.7-0.7V24c0-0.4,0.3-0.8,0.7-0.9l1.1-0.5c0.3-0.2,0.8-0.1,1.1,0.1l1.3,1.3c0.3,0.3,0.7,0.3,1,0l0.4-0.4c0.3-0.3,0.3-0.7,0-1l-1.3-1.3C25,21,25,20.5,25.1,20.2l0.4-1.1c0.1-0.4,0.5-0.7,0.9-0.7h1.9c0.4,0,0.7-0.3,0.7-0.7v-0.6C29,16.7,28.7,16.4,28.3,16.4z M23.8,17.5c0,2.2-1.8,3.9-3.9,3.9c-2.2,0-3.9-1.8-3.9-3.9s1.7-3.9,3.9-3.9C22.1,13.6,23.8,15.3,23.8,17.5z"></path></g></g></svg></div></button></div></div><div class="w-css-reset" style="display: inline-block; vertical-align: top; pointer-events: auto;" data-handle="fullscreenButton"><div class="w-vulcan-button-wrapper w-css-reset" style="display: inline-block; height: 34px; position: relative; vertical-align: top; width: 40px;"><button class="w-vulcan-v2-button w-css-reset w-css-reset-tree w-css-reset-button-important" style="background: rgba(22, 159, 230, 0.95) none repeat scroll 0% 0%; box-shadow: none; cursor: pointer; height: 100%; position: relative; width: 100%; transition: opacity 400ms ease 0s; opacity: 1;" aria-label="Fullscreen" title="Fullscreen"><div class="w-vulcan-icon-wrapper" style="box-sizing: border-box; height: 100%;" data-handle="fullscreenButton"><svg x="0px" y="0px" viewBox="0 0 40 34" enable-background="new 0 0 40 34" style="fill: rgb(255, 255, 255); width: 100%; height: 100%; left: 0px; top: 0px; stroke-width: 0px;"><g><g><polyline fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="31.4,12.6 31.4,8.7 25.8,8.7"></polyline><polyline fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="14.7,8.7 9.1,8.7 9.1,12.6"></polyline><polyline fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="25.8,24.8 31.4,24.8 31.4,20.9"></polyline><polyline fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="9.1,20.9 9.1,24.8 14.7,24.8"></polyline></g><rect x="13.7" y="12.3" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new" width="13.3" height="8.9"></rect></g></svg></div></button></div></div></div></div></div></div><div class="w-foreground w-css-reset" style="height: 100%; left: 0px; pointer-events: none; position: absolute; top: 0px; width: 100%;"><div class="w-css-reset" style="pointer-events: auto;" data-handle="contextMenu"></div><div class="w-css-reset" style="pointer-events: auto;" data-handle="loadingHourglass"></div></div><div class="w-focus-border" style="border: 2px solid rgb(255, 255, 255); box-sizing: border-box; display: none; height: 100%; left: 0px; pointer-events: none; position: absolute; top: 0px; width: 100%;"></div></div></div></div><div id="wistia_grid_36_front"></div><div id="wistia_grid_36_top_inside"><div id="wistia_grid_36_top" style="height: 0px; font-size: 0px; line-height: 0px;"> </div></div><div id="wistia_grid_36_bottom_inside"><div id="wistia_grid_36_bottom" style="height: 0px; font-size: 0px; line-height: 0px;"> </div></div><div id="wistia_grid_36_left_inside"><div id="wistia_grid_36_left" style="height: 0px; font-size: 0px; line-height: 0px;"> </div></div><div id="wistia_grid_36_right_inside"><div id="wistia_grid_36_right" style="height: 0px; font-size: 0px; line-height: 0px;"> </div></div></div><div id="wistia_grid_36_below" style="height: 0px; font-size: 0px; line-height: 0px;"> </div><style id="wistia_37_style" type="text/css" class="wistia_injected_style">#wistia_grid_36_wrapper{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;font-family:Arial,sans-serif;font-size:14px;height:100%;position:relative;text-align:left;width:100%;}
+#wistia_grid_36_wrapper *{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}
+#wistia_grid_36_above{position:relative;}
+#wistia_grid_36_main{display:block;height:100%;position:relative;}
+#wistia_grid_36_behind{height:100%;left:0;position:absolute;top:0;width:100%;}
+#wistia_grid_36_center{height:100%;overflow:hidden;position:relative;width:100%;}
+#wistia_grid_36_front{display:none;height:100%;left:0;position:absolute;top:0;width:100%;}
+#wistia_grid_36_top_inside{position:absolute;left:0;top:0;width:100%;}
+#wistia_grid_36_top{width:100%;position:absolute;bottom:0;left:0;}
+#wistia_grid_36_bottom_inside{position:absolute;left:0;bottom:0;width:100%;}
+#wistia_grid_36_bottom{width:100%;position:absolute;top:0;left:0;}
+#wistia_grid_36_left_inside{height:100%;position:absolute;left:0;top:0;}
+#wistia_grid_36_left{height:100%;position:absolute;right:0;top:0;}
+#wistia_grid_36_right_inside{height:100%;right:0;position:absolute;top:0;}
+#wistia_grid_36_right{height:100%;left:0;position:absolute;top:0;}
+#wistia_grid_36_below{position:relative;}</style></div></div></div></div></div>
+</div>
+
+<!-- Start Take a Look -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/pyimagesearch_gurus_overview.jpg" alt="PyImageSearch Gurus: dedicated to making developers, researchers, and students awesome at solving real-world computer vision problems" width="436">
+</div>
+
+<div class="one_half last">
+<h2>PyImageSearch Gurus has one goal...</h2>
+<h3>...to make <strong><em>developers</em></strong>, <strong><em>researchers</em></strong>, and <strong><em>students</em></strong> like yourself become <strong><em>awesome</em></strong> at solving real-world computer vision problems.</h3>
+
+<p>Inside <strong>PyImageSearch Gurus</strong>, you'll find:</p>
+<ul style="margin-left: 20px;">
+	<li style="padding-bottom: 10px;"><strong>An actionable, real-world course on OpenCV and computer vision.</strong>
+ Each lesson in PyImageSearch Gurus is taught in the same trademark, 
+hands-on, easy-to-understand PyImageSearch style that you know and love.
+ We'll be using primarily Python + OpenCV throughout the course, but 
+expect a few other libraries to be utilized as well, including 
+scikit-learn, scikit-image, Caffe, and Keras.</li>
+	<li style="padding-bottom: 10px;"><strong>The most <em>comprehensive</em> computer vision education online today</strong>. The PyImageSearch Gurus course covers <strong>13 modules</strong> broken out into <strong>168 lessons</strong>, with other <strong>2,161 pages</strong> of content. You won't find a more detailed computer vision course anywhere else online, I guarantee it. <em>See below for the full list of topics to be covered in the course.</em></li>
+	<li><strong>A community of like-minded developers, researchers, and students</strong> just like you, who are eager to learn computer vision and level-up their skills.</li>
+</ul>
+<p>Sound interesting? <strong><em>Keep reading to learn more...</em></strong></p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+</div>
+</section>
+<!-- End Take a Look -->
+
+<!-- Start When you Join -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<h2>Computer vision is <em>everywhere</em>... <strong>whether you realize it or not.</strong></h2>
+<h3>Join <em>PyImageSearch Gurus</em> and uncover the algorithms powering <em>real-world</em> computer vision applications.</h3>
+
+<p>Have you been on Facebook recently? If so, you may have noticed that Facebook not only can <strong>automatically</strong> <em>detect</em> faces in images but also <em>recognize</em> and <em>tag</em> them as well!</p>
+<p>Just like Facebook has seamlessly inserted face recognition into 
+their online photo software, we can also apply computer vision to other 
+areas of our lives: including automatic license plate identification, 
+handwriting recognition, security, surgery, military, retail, <em>and much more</em>.</p>
+<p>My goal in the PyImageSearch Gurus course is to teach you how to <em>utilize computer vision to solve actual, real-world problems</em>, such as the ones listed in the domains above. <strong>Join me, and give the course a try</strong> — before you know it, you'll be building (and solving) computer vision projects of your own!</p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+<div class="one_half last">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/cv_everywhere_example.jpg" alt="Computer vision is everywhere, whether you realize it or not." width="420">
+</div>
+
+</div>
+</section>
+<!-- End When you Join -->
+
+<!--Start of Testimonials-->
+<section id="testimonials" class="background_grey">
+<div class="row" style="padding-top: 15px; padding-bottom: 20px;">
+
+<!--Start of Testimonial-->
+<blockquote class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/daniel_pereira_tweet.png" alt="PyImageSearch Gurus: a great course with a wide focus (from fundamnetals to advanced topics), and well designed to learn at your own pace!" style="margin-top: 0px; background-color: transparent; box-shadow: none;" width="445" height="186">
+</blockquote>
+<!--End of Testimonial-->
+
+<!--Start of Testimonial-->
+<blockquote class="one_half last">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/etienne_posthumus_tweet.png" alt="Totally amazed by the quality of content in PyImageSearch Gurus course. Enjoying digging into it." style="margin-top: 0px; background-color: transparent; box-shadow: none;" width="445" height="202">
+</blockquote>
+<!--End of Testimonial-->
+
+</div>
+</section>
+<!--End of Testimonials-->
+
+<div class="row" style="padding-top: 25px; padding-bottom: 0px;">
+<h2 class="section_title" style="font-size: 36px; font-weight: bold; background-image: none;">
+	<span style="font-weight: normal;">What topics are covered inside PyImageSearch Gurus?</span><br>
+	<em>Let me show you...</em>
+</h2>
+</div>
+
+<!-- Start ANPR -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/anpr_example.jpg" alt="Learn about Automatic License Plate Recognition and Automatic Number Plate Recognition" width="440">
+</div>
+
+<div class="one_half last">
+<h2>Build your own <em>Automatic License Plate Recognition</em> system.</h2>
+<h3>Interested in learning how to <em>automatically</em> recognize and identify license plates in images? No problem, I've got you covered — <em>PyImageSearch Gurus has an entire module dedicated to building custom ANPR systems.</em></h3>
+
+<p>Automatic License Plate Recognition (also called <em>Automatic Number Plate Recognition</em>, or <em>ANPR</em> for short) consists of three primary steps:</p>
+<ul style="margin-left: 20px;">
+	<li><strong>Step #1:</strong> Finding the license plate(s) in an image.</li>
+	<li><strong>Step #2:</strong> Segmenting each of the individual characters from the license plate.</li>
+	<li><strong>Step #3:</strong> Identifying and recognizing each of the characters.</li>
+</ul>
+<p>Inside the <em>Automatic License Plate Recognition</em> module, you will learn how to solve each of these steps — <strong><em>and then combine them to create a full solution to license plate identification!</em></strong></p>
+<p>To discover the secrets behind ANPR (and start building your own 
+custom ANPR system), be sure to join the PyImageSearch Gurus course!</p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+</div>
+</section>
+<!-- End ANPR -->
+
+<!-- Start Deep Learning -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<h2>Take a deep dive into <em>Deep Learning</em> and <em>Convolutional Neural Networks</em>.</h2>
+<h3><strong>Curious about deep learning?</strong> I'm here to help. I've created an <em>entire module</em>
+ dedicated to Neural Networks, Deep Belief Networks, and Convolutional 
+Neural Networks, allowing you to get up to speed quickly and easily.</h3>
+
+<p>When I first started writing the PyImageSearch Gurus course, my original working title for this module was <strong><em>"Deep Learning Demystified"</em></strong>. You see, every morning when I opened my notebook and starting drafting lessons, I wanted that header in <em>big, block letters</em> as a constant reminder that <strong>deep learning doesn't have to be complicated.</strong></p>
+<p>And in truth, <em>it doesn't have to be</em>. Inside this module, you'll start by learning the basics of neural networks and deep learning, including <em>activation functions</em>, <em>convolutional layers</em>, <em>pooling layers</em>, and <em>common network architectures</em>.</p>
+<p>From there, you'll apply popular deep learning libraries such as <em>Caffe</em>, <em>Keras</em>, and <em>scikit-theano</em> to train your own custom networks to classify the contents of images.</p>
+<p><strong>You'll not only <em>understand deep learning</em>, but also be able to <em>apply it</em> to your own datasets as well!</strong></p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+<div class="one_half last">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/deep_learning_example.jpg" alt="Study deep learning and Convolutional Neural Networks inside the PyImageSearch Gurus course." width="450">
+</div>
+
+</div>
+</section>
+<!-- End Deep Learning -->
+
+<!-- Start Face Recognition -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/face_reco_example.jpg" alt="Discover how to recognize faces in images and video streams" width="450">
+</div>
+
+<div class="one_half last">
+<h2>Face recognition: <em>identify</em>, <em>recognize</em>, and <em>tag</em> faces in images and video streams.</h2>
+<h3>You've probably seen face recognition software before — remember Facebook? The real question is, <strong><em>how do they do it?</em></strong> I'll show you! <em>And then you'll be able to apply face recognition to your own projects.</em></h3>
+
+<p>Let's play a little game — suppose I hold up a picture of your 
+mother, best friend, or college roommate. I'm willing to bet that you'll
+ be able to <em>recognize</em> the person in the image, right?</p>
+<p>Face recognition tends to be an easy task for humans. We are able to 
+intuitively pick out distinguishing attributes of a person's face.</p>
+<p><strong>But the same is not true for computers.</strong> In order for a computer to recognize people in images, we need to develop <em>specialized techniques</em> that can <em>quantify facial characteristics</em>.</p>
+<p>Once you join the PyImageSearch Gurus course, <strong><em>I'll show you how to build face recognition systems of your own using both images and video streams.</em></strong></p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+</div>
+</section>
+<!-- End Face Recognition -->
+
+<!-- Start Object Detectors -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<h2>Learn how to train your own custom object detectors.</h2>
+<h3>You'll discover how to detect <em>road signs</em>, <em>faces</em>, <em>cars</em> (and nearly any other object) in images by applying the HOG + Linear SVM framework for object detection.</h3>
+
+<p>Training your own custom object detector using the HOG + Linear SVM method can be broken down into <strong>6 simple steps</strong>:</p>
+<ol style="margin-left: 15px;">
+	<li>Extract HOG features from your <em>positive</em> training set.</li>
+	<li>Compute HOG feature vectors from your <em>negative</em> training set.</li>
+	<li>Train your Linear SVM.</li>
+	<li>Apply hard-negative mining.</li>
+	<li>Re-train your Linear SVM using the positive samples, negative samples, and hard-negative samples.</li>
+	<li>Done! You can now apply your object detector to your dataset.</li>
+</ol>
+<p>Using these 6 steps, <strong>you can train custom object detectors of your own</strong>.</p>
+<p>For a <strong><em>detailed review</em></strong> of the HOG + Linear SVM framework, <strong><em>along with the source code implementation</em></strong>, be sure to join the PyImageSearch Gurus course. <strong>I'll see you inside!</strong></p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+<div class="one_half last">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/custom_object_detector_example.jpg" alt="Train your own custom object detectors" width="425">
+</div>
+
+</div>
+</section>
+<!-- End Object Detectors -->
+
+<!--Start of Testimonials-->
+<section id="testimonials" class="background_grey">
+<div class="row" style="padding-top: 15px; padding-bottom: 20px;">
+
+<!--Start of Testimonial-->
+<blockquote>
+<q>The PyImageSearch Gurus course has proved to be one of the most 
+valuable investments for me. I work in a fashion oriented company where 
+the analytics team focuses on computer vision - and this course is just a
+ perfect fit. A major plus is the amazing quality of the code, available
+ to download for every lesson. If you like computer vision, this is your
+ place.</q>
+<footer>
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/javier_rodriguez_zaurin.jpg" alt="Javier Rodriguez Zaurin of Styloko and 23snaps" width="60" height="60">
+<div>Javier Rodriguez Zaurin</div>
+Data Scientist at <a target="blank" href="https://uk.linkedin.com/pub/javier-rodriguez-zaurin/54/774/62">Styloko and 23snaps</a>
+</footer>
+</blockquote>
+<!--End of Testimonial-->
+
+
+</div>
+</section>
+<!--End of Testimonials-->
+
+<!-- Start CBIR -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/cbir_example.jpg" alt="Build large-scale Content-based Image Retrieval (CBIR) systems" width="450">
+</div>
+
+<div class="one_half last">
+<h2>Become the next Google...<em>and build your own (highly scalable) image search engine</em>.</h2>
+<h3>The Bag of Visual Words model. Tf-idf weighting. Inverted indexes. <em>Sounds complicated, right?</em> It's not. Let me show you how building image search engines <em>isn't magic</em> and <em>how you can do it too</em>.</h3>
+
+<p><strong>Content-based Image Retrieval</strong> (i.e., image search engines) is the reason why I started the PyImageSearch blog. Inside these lessons, you'll discover my <em>special techniques</em> for building image search engines and making collections of images visually searchable.</p>
+<p>Plus, you'll gain access to my <em>previously unreleased personal libraries</em> that I've spent <em>years</em> crafting and perfecting. Using these resources, you'll be able to build image search engines of your own in no time. </p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+</div>
+</section>
+<!-- End CBIR -->
+
+<!-- Start Hand Gesture Recognition -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<h2>Recognize hand gestures in video streams...</h2>
+<h3>...and build applications that can <em>detect</em> and <em>understand</em> your actions in <strong>real-time</strong>.</h3>
+
+<p>Ever seen the movie <em>Minority Report</em>? It features a scene 
+with an amazing (although fictional) hand gesture recognition system. I 
+can't promise you that we can build that...but what I <em>can</em> promise is to teach you the basics of how hand gesture recognition works.</p>
+<p>We'll start with the basics of segmentation, and how we can segment 
+the hand region from a video stream. Then, we'll apply hand gesture 
+recognition algorithms that can detect the number of fingers you are 
+holding up.</p>
+<p><strong>From there, I'm confident that you'll be able to apply hand gesture recognition to your own applications!</strong></p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+<div class="one_half last">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/hand_gesture_example.jpg" alt="Recognize hand gestures in video streams" width="450">
+</div>
+
+</div>
+</section>
+<!-- End Hand Gesture Recognition -->
+
+<!-- Start Hadoop -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/hadoop_example.jpg" alt="Apply Hadoop, MapReduce, and Big Data techniques to process large image datasets" width="450">
+</div>
+
+<div class="one_half last">
+<h2>Harness the power of Hadoop + big data.</h2>
+<h3>Hadoop and MapReduce are normally applied to processing text and analytical data. <strong><em>But did you know that Hadoop can be used to process images as well?</em></strong> It's not as challenging as you might think...</h3>
+
+<p><em>The trick is learning how to prepare your image dataset correctly</em>. Unlike traditional filesystems, Hadoop doesn't perform optimally when there are <em>lots</em> of small files on-disk. Instead, HDFS prefers <em>larger files</em> that contain <em>multiple smaller files</em> serialized together.</p>
+<p>Serializing and concatenating text files makes sense...<em>but how is that possible with images?</em> <strong>I'll show you.</strong></p>
+<p>From there, we'll utilize <strong>MapReduce</strong> to quickly process large image datasets in bulk using <strong><em>my personal Hadoop + MapReduce project structure template.</em></strong> This is the <strong><em>exact same template</em></strong> that I use when working on my own Hadoop projects.</p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+</div>
+</section>
+<!-- End Hadoop -->
+
+<!-- Start Image Classification -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<h2>Utilize image classification + machine learning to recognize image contents.</h2>
+<h3>No joke, back in 2012 Google built an image classification system using <em>16,000 processors</em> and <em>months of computing time</em> to <em>recognize cats in YouTube videos</em>.</h3>
+<h3 style="margin-top: 10px;">I'll show you the same tricks Google used to build their cat recognizer...<strong><em>but in a fraction of the time and CPU power.</em></strong></h3>
+
+<p>Image classification and image understanding are currently (and will 
+continue to be) the most popular sub-field of computer vision for the 
+next 10 years. We'll see large companies like Google, Microsoft, and 
+Baidu quickly snap up successful image understanding startup companies. 
+We'll also see more consumer applications on our smartphones that can 
+interpret the contents of an image.</p>
+<p><strong>In order to be prepared for this, you <em>need</em> to understand image classification</strong> — this is <em>especially true</em> if you're an entrepreneur preparing to enter the computer vision space.</p>
+<p>Inside this module, I'll detail <strong>how to build your own image classifiers</strong> with <strong>lots of code examples</strong>. You'll be developing and deploying your own image classification systems <em>well before</em> the PyImageSearch Gurus course completes.</p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+<div class="one_half last">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/image_classification_example.jpg" alt="Classify the contents of images using feature extraction and machine learning" width="450">
+</div>
+
+</div>
+</section>
+<!-- End Image Classification -->
+
+<!--Start of Testimonials-->
+<section id="testimonials" class="background_grey">
+<div class="row" style="padding-top: 15px; padding-bottom: 20px;">
+
+<!--Start of Testimonial-->
+<blockquote class="one_half">
+<q>You [Adrian] have great skill in pedagoy as well as computer vision. 
+Your writing/teaching are very clear and I like the layout of the 
+lessons. Love everything so far and I'm so glad to be a part of it. I 
+signed up for the instant access membership and already think it's well 
+worth your asking price.</q>
+<footer>
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/jeff_bass.png" alt="Jeff Bass of Amgen and Bass Institute Inc." width="60" height="60">
+<div>Jeff Bass</div>
+<a target="blank" href="https://www.linkedin.com/in/jeffbass42">Amgen, Bass Institute Inc.</a>
+</footer>
+</blockquote>
+<!--End of Testimonial-->
+
+<!--Start of Testimonial-->
+<blockquote class="one_half last">
+<q>The PyImageSearch Gurus course is one of the best education programs I
+ have ever attended. No matter whether you are a beginner or advanced 
+computer vision developer, you'll definitely learn something new and 
+valuable inside the course. I highly recommend PyImageSearch Gurus to 
+anyone interested in learning computer vision.</q>
+<footer>
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/peter_ip.png" alt="Peter IP: Data Scientist and Big Data Architect" width="60" height="60">
+<div>Peter IP</div>
+<a target="blank" href="https://www.linkedin.com/in/peteripmobile">Data Scientist &amp; Big Data Architect</a>
+</footer>
+</blockquote>
+<!--End of Testimonial-->
+
+</div>
+</section>
+<!--End of Testimonials-->
+
+<!-- Start CV Mobile -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/cv_mobile_example.jpg" alt="Build computer vision applications for your mobile device" width="425">
+</div>
+
+<div class="one_half last">
+<h2>Build computer vision apps for mobile devices...without writing a <em>single line</em> of Objective-C, Swift, or Java.</h2>
+<h3>Did you know that developing computer vision applications for mobile devices can be <em>easily accomplished</em> using a small amount of HTML, JavaScript, and Python? <strong>Join me, and I'll show you how.</strong></h3>
+
+<p>Ever heard of PhoneGap or the Cordova Project? Using these frameworks, you can <em>rapidly construct</em> computer vision applications for mobile devices using HTML and JavaScript.</p>
+<p>Sound too good to be true?</p>
+<p><strong>It's not.</strong></p>
+<p>I've built both <em>Chic Engine</em> and <em>ID My Pill</em> using these <strong>exact same technologies!</strong></p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+</div>
+</section>
+<!-- End CV Mobile -->
+
+<!-- Start Raspberry Pi -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<h2>Work with practical, hands-on Raspberry Pi projects.</h2>
+<h3>Utilize computer vision, face recognition, and txt message notifications to receive alerts when <em>suspicious activity</em> takes place around your house.</h3>
+
+<p>Last winter, I went down to Mexico for a few days to get away from 
+the unbearable frozen tundra of the north eastern United States. While I
+ was gone, I set up a Raspberry Pi by my front door to perform both <em>motion detection</em> and <em>face identification</em>. If anything were to happen, <strong>I would receive a txt message alert to my smartphone!</strong></p>
+<p>Using a bit of computer vision knowledge (and the fantastic Twilio API), I was able to build such a system in <em>less than a day!</em></p>
+<p>Inside the PyImageSearch Gurus course, I'll show you how to build Raspberry Pi + computer vision applications like this one...<strong>and
+ I have no doubt that you'll be able to extend this project using your 
+knowledge of computer vision gained throughout the rest of the course!</strong></p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+<div class="one_half last">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/raspberry_pi_example.jpg" alt="Create practical Raspberry Pi projects using OpenCV and computer vision" width="425">
+</div>
+
+</div>
+</section>
+<!-- End Raspberry Pi -->
+
+<!-- Start Image Descriptors -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/feature_extraction_example.jpg" alt="Learn how to quantify the contents of an image using feature extraction" width="450">
+</div>
+
+<div class="one_half last">
+<!-- <h2>Apply image descriptors to <em>quantify</em> and <em>visually understand</em> photos.</h2> -->
+<h2>Visually understand and quantify photos with image descriptors.</h2>
+<h3>What's in an image? And how do you <em>describe</em> the contents of an image using a bunch of numbers? The trick is to apply <em>image descriptors</em> and <em>feature extraction</em>. It's easy, once you get the hang of it.</h3>
+
+<p>Before we can <em>build custom object detectors</em>, <em>classify the contents of images</em>, or <em>construct large-scale image search engines</em>, we first need to understand a <strong><em>critical component</em></strong> of computer vision — image descriptors.</p>
+<p>Image descriptors and feature extraction govern <em>how</em> and <em>what</em> parts of an image are quantified, effectively turning a matrix of pixels into a <em>single list of numbers</em> used to quantify the contents of an image.</p>
+<p>These techniques play a <strong>vital role</strong> in computer 
+vision, so we spend lots of time dissecting and understanding feature 
+extraction methods, including: Histogram of Oriented Gradients, Local 
+Binary Patterns, Haralick texture, Zernike moments, SIFT, RootSIFT, 
+SURF, ORB, BRISK, FREAK, <strong><em>and many more!</em></strong></p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+</div>
+</section>
+<!-- End Image Descriptors -->
+
+<!-- Start Case Studies -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<h2>Study real-world solutions to actual computer vision problems.</h2>
+<h3>You'll learn how to <em>track multiple objects in a video</em>, <em>recognize handwriting</em>, <em>identify plant species</em>, <strong>and much more</strong>.</h3>
+
+<p>One of the primary reasons I started the PyImageSearch blog is to create <em>high-quality</em>, <em>easy-to-follow</em>, and <em>super hands-on</em>
+ computer vision tutorials. A major factor in this practicality is the 
+ability to translate the lessons you learn on PyImageSearch to <em>actual, real-world</em> computer vision problems.</p>
+<p>I'm pleased to say that this <em>same motivation</em> has carried over to the PyImageSearch Gurus course. Even though we'll be reviewing more advanced algorithms and topics — <strong><em>no worries</em></strong> — the <em>same easy-to-follow explanations</em> for <em>every topic</em> we review will still be there. And as always, I guarantee all examples are <em>hands-on and practical</em>.</p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+<div class="one_half last">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/case_studies_example.jpg" alt="Study real-world solutions to computer vision problems" width="450">
+</div>
+
+</div>
+</section>
+<!-- End Case Studies -->
+
+<!-- Start CV Basics -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/cv_basics_example.jpg" alt="Master of the basics of OpenCV and computer vision" width="450">
+</div>
+
+<div class="one_half last">
+<h2>Master the basics of computer vision and image processing.</h2>
+<h3><strong>The PyImageSearch Gurus course is my <em>magnum opus</em> on computer vision</strong> — it's for developers, researchers, and students <em>just like yourself</em>, who are looking for the <em>complete</em> computer vision experience.</h3>
+
+<p>We'll start with the basics of computer vision and image processing, 
+allowing you to get started quickly (without being bogged down in lots 
+of theory). In fact, some of our <strong>very first projects</strong> include <em>Tetris block identification</em>, <em>recognizing tic-tac-toe pieces</em>, and <em>learning how to segment license plate characters from license plates</em>. Not bad for your first few lessons, right?</p>
+<p>Like I said, this is a <strong><em>super practical</em></strong> and <strong><em>super hands-on</em></strong> computer vision course.</p>
+<p>Whether you're just getting started learning computer vision or you're a seasoned veteran in the field, <strong><em>this course is for you.</em></strong></p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+</div>
+</section>
+<!-- End CV Basics -->
+
+<!-- Start VM -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<h2>Get started learning <em>instantly</em> with the PyImageSearch Gurus virtual machine.</h2>
+<h3>By using my pre-configured Ubuntu VirtualBox virtual machine, learning computer vision couldn't be easier (guaranteed to run on <strong><em>OSX</em></strong>, <strong><em>Linux</em></strong>, &amp; <strong><em>Windows</em></strong>). Just download the virtual machine, and start learning the <em>instant</em> you join the PyImageSearch Gurus course.</h3>
+
+<p>Your downloadable Ubuntu VirtualBox virtual machine comes 
+pre-configured and pre-installed with all the necessary computer vision,
+ image processing, and machine learning libraries you'll need to be 
+successful inside the PyImageSearch Gurus course.</p>
+<p>Nope, there's no libraries, dependencies, or headaches to deal with —
+ you'll be able to run all code examples inside the virtual machine 
+hassle-free.</p>
+<p>And if you want to set up your own <strong>native development environment</strong>, I've provided <strong>detailed installation instructions</strong> for both <em>OSX</em> and <em>Linux</em>.</p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+<div class="one_half last">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/vm_screenshot_01.jpg" alt="Get started learning instantly with the PyImageSearch Gurus Ubuntu virtual machine" width="450">
+</div>
+
+</div>
+</section>
+<!-- End VM -->
+
+<!-- Start Forums -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/community.jpg" alt="Get access to the PyImageSearch Gurus private community and forums" width="450">
+</div>
+
+<div class="one_half last">
+<h2>Direct access to me.</h2>
+<h3>The PyImageSearch Guru forums are my new home.</h3>
+
+<p>Each week I receive a ton of emails. To be honest, it's hard to keep 
+up with them all. If you need access to me to help solve a computer 
+vision problem or get advice in what direction to go, the PyImageSearch 
+Gurus forum will be my new home.</p>
+<p><strong>I'll be checking the forums and replying to topics and questions each and every day.</strong></p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+</div>
+</section>
+<!-- End Forums -->
+
+<!-- Start Bio -->
+<section class="background_grey">
+<div class="row" style="padding-top: 25px; padding-bottom: 25px;">
+
+<h2 class="section_title" style="font-size: 32px; font-weight: bold; background-image: none;">Who's behind this?</h2>
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/adrian_rosebrock.jpg" alt="Adrian Rosebrock, creator of PyImageSearch Gurus" width="340">
+</div>
+
+<div class="one_half last" style="margin-bottom: 0px;">
+<p>Hey, I'm <strong>Adrian Rosebrock</strong>, a Ph.D and entrepreneur 
+that has spent his entire life studying computer vision, machine 
+learning, and image search engines. Over the past 2 years alone, I have:</p>
+<ul style="margin-left: 20px;">
+	<li>Started the <a target="blank" href="https://www.pyimagesearch.com/">PyImageSearch.com</a> blog and <strong>published over 125+ tutorials and articles</strong> aimed at teaching computer vision, image processing, and image search engines.</li>
+	<li><strong>Authored <em><a target="blank" href="https://www.pyimagesearch.com/practical-python-opencv/">Practical Python and OpenCV</a></em></strong>, which has been featured on the <em>official</em> OpenCV.org website.</li>
+	<li><strong>Ran a <a target="blank" href="https://www.kickstarter.com/projects/1186001332/pyimagesearch-gurus-become-a-computer-vision-openc?token=edfe2e40">successful Kickstarter campaign</a></strong> to fund the creation of the PyImageSearch Gurus course.</li>
+	<li><strong>Answered 10,000+ emails helping 1,000's of developers, researchers, and students</strong> learn the ropes of computer vision and OpenCV.</li>
+</ul>
+<p>If learning about computer vision and OpenCV sounds interesting or excites you, <strong>I hope you'll consider joining me inside PyImageSearch Gurus</strong>. You'll learn a ton about building practical, real-world computer vision applications — and have fun while doing it. <em>See you on the other side!</em></p>
+<p><em>—Adrian Rosebrock</em></p>
+</div>
+
+</div>
+</section>
+<!-- End Bio -->
+
+<div class="row" style="padding-top: 25px; padding-bottom: 0px;">
+<h2 class="section_title" style="font-size: 38px; font-weight: bold; background-image: none;">
+	<span style="font-weight: normal;">So, why join the PyImageSearch Gurus course?</span><br>
+	Earn your certificate. Get a job in CV.
+</h2>
+</div>
+
+<!-- Start Certificate of Completion -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<h2>Earn your <em>Certificate of Completion</em> and share it with the world.</h2>
+<h3>Register for PyImageSearch Gurus. Pass the course. <em>Show off your skills.</em></h3>
+
+<p>Upon successfully completing the PyImageSearch Gurus course, you will receive a <strong>Certificate of Completion</strong> that you can include in your resume and CV.</p>
+<p><strong>Display your computer vision knowledge with pride!</strong> This certificate will undoubtedly be an asset as you apply for computer vision-based jobs, research roles, and grants.</p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+<div class="one_half last">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/certificate_of_completion_example.png" alt="Earn your PyImageSearch Gurus Certificate of Completion" width="450">
+</div>
+
+</div>
+</section>
+<!-- End Certificate of Completion -->
+
+<!-- Start LinkedIn embed -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/linkedin_certificate_embedding.png" alt="Embed your PyImageSearch Gurus Certificate of Completion on your LinkedIn profile" width="450">
+</div>
+
+<div class="one_half last">
+<h2>Embed your Certificate of Completion <em>directly</em> on your LinkedIn profile....</h2>
+<h3>...and share your computer vision accomplishments with your network.</h3>
+
+<p>If you've ever taken an online course through popular learning 
+platforms such as Coursera, Udemy, or edX, you'll know that after 
+completing a course, you can <em>directly embed</em> your hard-earned certificate on your <em>LinkedIn profile</em>.</p>
+<p><strong>The same is true for the PyImageSearch Gurus course!</strong></p>
+<p>When you successfully complete the PyImageSearch Gurus course, you'll
+ be able to embed your Certificate of Completion on your LinkedIn page 
+to share with your network. Once embedded, the certificate will link 
+back to the PyImageSearch Gurus site, verifying your PyImageSearch Gurus
+ graduation.</p>
+<p>As an example, you can find <a target="blank" href="https://www.linkedin.com/in/adrian-rosebrock-59b8732a">my LinkedIn page here</a> along with my <a target="blank" href="https://gurus.pyimagesearch.com/certificates/?id=13081198">verified PyImageSearch Gurus Certificate of Completion</a>.</p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+</div>
+</section>
+<!-- End LinkedIn embed -->
+
+<!-- Start Job Boards -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<h2>Looking for a job in computer vision?</h2>
+<h3>PyImageSearch Gurus can help land you your next position in the computer vision field.</h3>
+
+<p>As I mentioned at the top of this page, <em>computer vision is everywhere</em>. <strong><em>There are more jobs in computer vision than ever before</em></strong>. And it's a <em>rapidly</em> growing field.</p>
+<p>One of my primary goals is to develop a PyImageSearch Jobs board that can be used to <strong>connect PyImageSearch Gurus graduates</strong> with <strong>jobs in the computer vision community</strong>.</p>
+<p>So, if you're looking for computer vision certification <strong>AND</strong> want a job in the computer vision field, <strong>PyImageSearch Gurus is the right place for you!</strong></p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+<div class="one_half last">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/pyimagesearch_jobs.jpg" alt="Get access to PyImageSearch Jobs and land your next job in the computer vision field" width="450">
+</div>
+
+</div>
+</section>
+<!-- End Job Boards -->
+
+<div class="row" style="padding-top: 25px; padding-bottom: 0px;">
+<h2 class="section_title" style="font-size: 38px; font-weight: bold; background-image: none;">
+	<span style="font-weight: normal;">You might be wondering,</span><br>
+	<em>"Is PyImageSearch Gurus right for me?"</em>
+</h2>
+</div>
+
+<!-- Start Right for Me -->
+<section class="background_white">
+<div class="row">
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/gurus_formula.jpg" alt="Whether you're just getting started in computer vision or you're a seasoned pro, PyImageSearch Gurus is right for you" width="350">
+</div>
+
+<div class="one_half last">
+<h2>You bet it is!</h2>
+<h3>Regardless of whether <em>you're just getting started in computer vision</em> or <em>you're already a seasoned computer vision pro</em>, <strong><em>PyImageSearch Gurus</em></strong> has the tutorials and code for you.</h3>
+
+<p><strong>Just getting started in computer vision?</strong> Don't 
+worry! You won't be bogged down with tons of theory and complex 
+equations. We'll start off with the basics of computer vision, image 
+processing, and OpenCV so you have a solid foundation and understanding.
+ You'll learn in a fun, practical manner with lots of code. Using the 
+proven, hands-on PyImageSearch Gurus teaching method, <em>you'll be able to graduate to the more advanced content in no time</em>.</p>
+<p><strong>Already a seasoned computer vision pro?</strong> This course 
+isn't just for beginners — there's content in here for you, too. You'll 
+discover how to apply Deep Learning and Convolutional Neural Networks to
+ classify the contents of images. You'll construct a framework that can 
+be used to train your own custom object detector with minimal effort. 
+And you'll build systems to automatically recognize license plates in 
+images. <em>These real-world solutions can be directly applied to your job and research.</em></p>
+<p><a class="join_the_course" href="#"><strong>Sign me up</strong> — I'm ready to become a computer vision guru. »</a></p>
+</div>
+
+</div>
+</section>
+<!-- End Right for Me -->
+
+<!--Start of Testimonials-->
+<section id="testimonials" class="background_grey">
+<div class="row" style="padding-top: 15px; padding-bottom: 20px;">
+
+<!--Start of Testimonial-->
+<blockquote class="one_half">
+<q>Love the course structure and content. Makes computer vision concepts
+ so easy that even someone without much prior knowledge can also become a
+ guru.</q>
+<footer>
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/naren_mudivarthy.jpg" alt="Naren Mudivarthy, Software Engineer at Cisco">
+<div>Naren Mudivarthy</div>
+<a target="blank" href="https://www.linkedin.com/pub/naren-mudivarthy/36/a21/283">Software Engineer at Cisco</a>
+</footer>
+</blockquote>
+<!--End of Testimonial-->
+
+<!--Start of Testimonial-->
+<blockquote class="one_half last">
+<q>I cannot say it enough: PyImageSearch Gurus is amazing. I really 
+enjoy myself and the way you set everything up (blog, course, community,
+ incredible response time). It tells a lot about how much you enjoy it 
+too.</q>
+<footer>
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/claude_cavelius.jpg" alt="Claude Cavelius, Research geologist and earth modeler" width="60" height="60">
+<div>Claude Cavelius</div>
+<a target="blank" href="https://www.linkedin.com/in/claude-cavelius-9890523">Research geologist &amp; earth modeler</a>
+</footer>
+</blockquote>
+<!--End of Testimonial-->
+
+</div>
+</section>
+<!--End of Testimonials-->
+
+<div id="ready_become" class="row" style="padding-top: 25px; padding-bottom: 20px;">
+<h2 class="section_title" style="font-size: 38px; font-weight: bold; background-image: none;">
+	<span style="font-weight: normal;">Ready to become a computer vision guru?</span><br>
+	Just select your membership plan below...
+</h2>
+</div>
+
+<!--Start of Pricing-->
+<section id="pricing" class="background_grey" style="border-bottom: none;">
+<div class="row" style="padding-bottom: 15px;">
+
+<div id="pricing_table" style="padding-top: 0px;">
+<!--Begin Pricing Block-->
+<div class="pricing_block one_half">
+<div class="pricing_header">
+<h4>Apprentice Membership</h4>
+</div>
+<div class="pricing">
+			<p class="price">$95</p>
+		<p class="price_sub">Billed monthly</p>
+	</div>
+<p style="padding-left: 20px; padding-right: 20px; text-align: left;">The <strong>Apprentice Membership</strong>
+ is billed monthly. Every month a new set of lessons are released 
+according to a preset schedule I have meticulously crafted to help you 
+study computer vision in the <em>most efficient, optimal manner</em>. You can work through the course on your own time, independent from other students' progress. <strong>Under this membership, it will take you as little as 6 months to complete the PyImageSearch Gurus course.</strong></p>
+<p style="padding-left: 20px; padding-right: 20px; text-align: left;">If you're just testing the waters (or, if budget is an issue), I'd recommend going with the <strong>Apprentice Membership</strong>. You'll still be getting the <em>best, most comprehensive</em> computer vision education online — and you can always upgrade to an <em>instant access membership</em> once you've given the course a try.</p>
+<ul class="list_check" style="text-align: left;">
+<li style="padding-left: 30px; padding-right: 20px;">Admission to the PyImageSearch Gurus course.</li>
+<li style="padding-left: 30px; padding-right: 20px;"><strong>Preset course schedule:</strong> each month for 6 months (based on your signup date) a new set of lessons is released.</li>
+<li style="padding-left: 30px; padding-right: 20px;">Access to the <strong>private PyImageSearch Gurus Community + Forums</strong>.</li>
+<li style="padding-left: 30px; padding-right: 20px;"><strong>Access to PyImageSearch Jobs</strong> — land your next position in the computer vision field (coming soon).</li>
+<li class="last" style="padding-left: 30px; padding-right: 20px;">Embed your <em>Certificate of Completion</em> directly on your <strong>LinkedIn profile</strong>.</li>
+</ul>
+			<a class="signup_link" href="https://gurus.pyimagesearch.com/register/pyimagesearch-gurus-apprentice-membership/" data-product="apprentice_membership_sp"><img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/i_want_this_plan_btn.png" alt="Join the PyImageSearch Gurus course" style="margin-top: 20px; width: 320px;"></a>
+	<p></p>
+</div>
+<!--End Pricing Block-->
+
+<!--Begin Pricing Block-->
+<div id="favorite" class="pricing_block one_half last">
+<div class="pricing_header">
+<h4>Instant Access Membership</h4>
+</div>
+<div class="pricing">
+<p class="price">$995</p>
+<p class="price_sub">One-time Payment — <strong><em>SAVE 15%!</em></strong></p>
+</div>
+<p style="padding-left: 20px; padding-right: 20px; text-align: left;">I've designed the <strong>Instant Access Membership</strong> to be your <em>all-access pass</em> to the PyImageSearch Gurus course for a single, upfront <strong><em>one-time payment</em></strong>. Inside this membership, you'll get <strong><em>instant access</em></strong> to <em>every single lesson</em> in PyImageSearch Gurus. This is the <strong><em>100%, entirely self-paced option</em></strong>, allowing you to work through the course at your own speed, <em>finish in less than 6 months</em>, and focus on the modules <em>that interest you the most</em>.</p>
+<p style="padding-left: 20px; padding-right: 20px; text-align: left;">70%
+ of PyImageSearch Gurus members choose this option — and most members 
+that initially go with the Apprentice Membership upgrade to instant 
+access after they join. <strong>So why not start with the best?</strong></p>
+<p style="padding-left: 20px; padding-right: 20px; text-align: left;">When you <strong>purchase the Instant Access Membership</strong> you'll be getting:</p>
+<ul class="list_check" style="text-align: left;">
+<li style="padding-left: 30px; padding-right: 20px;">Admission to the PyImageSearch Gurus course.</li>
+<li style="padding-left: 30px; padding-right: 20px;"><strong>Instant access</strong> to <strong><em>every lesson</em></strong> in the PyImageSearch Gurus course for an upfront one-time payment.</li>
+<li style="padding-left: 30px; padding-right: 20px;"><strong>100% fully self-paced:</strong> work at your own speed, focus on the lessons that interest you the most.</li>
+<li style="padding-left: 30px; padding-right: 20px;"><strong>Accelerate your progress</strong> and finish the course <em>faster</em> than 6 months.</li>
+<li style="padding-left: 30px; padding-right: 20px;">Access to the <strong>private PyImageSearch Gurus Community + Forums</strong>.</li>
+<li style="padding-left: 30px; padding-right: 20px;"><strong>Access to PyImageSearch Jobs</strong> — land your next position in the computer vision field (coming soon).</li>
+<li style="padding-left: 30px; padding-right: 20px;">Embed your <em>Certificate of Completion</em> directly on your <strong>LinkedIn profile</strong>.</li>
+<li class="last" style="padding-left: 30px; padding-right: 20px;"><strong><em>SAVE 15%</em></strong> by going with the instant access membership.</li>
+</ul>
+			<a class="signup_link" href="https://gurus.pyimagesearch.com/register/pyimagesearch-gurus-instant-access-membership-fcff7b5e/" data-product="instant_access_sp"><img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/i_want_this_plan_btn.png" alt="Join the PyImageSearch Gurus course" style="margin-top: 20px; width: 320px;"></a>
+	</div>
+<!--End Pricing Block-->
+</div>
+<!--End of Pricing Table-->
+
+</div>
+</section>
+<!--End of Pricing-->
+
+<!--Start of Testimonials-->
+<section id="testimonials" class="background_grey" style="border-top: none;">
+<div class="row" style="padding-top: 0px;">
+
+<!--Start of Testimonial-->
+<blockquote class="one_half">
+<q>PyImageSearch Gurus starts feeding tremendously accessible computer 
+vision knowledge from day 0. It's like learning how magic is done.</q>
+<footer>
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/caio_iglesias.jpg" alt="Caio Iglesias, Computer vision and machine learning enthusiast" width="60" height="60">
+<div>Caio Iglesias</div>
+<a target="blank" href="https://twitter.com/caioiglesias">Computer vision + machine learning enthusiast</a>
+</footer>
+</blockquote>
+<!--End of Testimonial-->
+
+<!--Start of Testimonial-->
+<blockquote class="one_half last">
+<q>Adrian possesses a very rare talent of making complex concepts easy to grasp.</q>
+<footer>
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/jean_francois_parent.jpg" alt="Jean-Francois Parent, Python programmer at ChallengeU" width="60" height="60">
+<div>Jean-Francois Parent</div>
+<a target="blank" href="https://www.linkedin.com/in/parentjf">Python Programmer at ChallengeU</a>
+</footer>
+</blockquote>
+<!--End of Testimonial-->
+
+</div>
+</section>
+<!--End of Testimonials-->
+
+<!--Start of Questions-->
+<section id="features">
+<div class="row" style="padding-bottom: 10px;">
+
+<!--Start of Questions Title-->
+<h2 class="section_title"><span>Questions?</span></h2>
+<!--End of Questions Title-->
+
+<!--Start of Questions List-->
+<ul>
+<li class="one_half">
+    <h4>Which membership should I buy?</h4>
+    <p>This mostly depends on your budget. The instant access membership costs more upfront, but you'll get access to <em>every lesson</em> inside the PyImageSearch Gurus course <em>immediately</em> — plus, you'll save <strong><em>15% in the long run.</em></strong>
+ However, if budget is a concern (or if you want to try the course 
+before committing to the instant access), then the monthly membership is
+ still a great deal. In either case, <em>you're still getting the best, most comprehensive computer vision education online</em>.</p>
+</li>
+<li class="one_half last">
+    <h4>I'm just starting out. Is this course right for me?</h4>
+    <p><strong>Yes, absolutely.</strong> Let me put it this way — I built PyImageSearch Gurus to be the course <strong><em>I wish I had</em></strong>
+ when I started learning computer vision. Even though computer vision 
+concepts seem complicated, overlapping and intertwining, I've <em>unweaved all the complexity</em>, leaving you with an <em>easy-to-follow roadmap</em> to graduating the PyImageSearch Gurus course and becoming a computer vision guru.</p>
+</li>
+<li class="one_half">
+	<h4>PyImageSearch Gurus seems expensive...</h4>
+	<p>I've found that charging for the PyImageSearch Gurus course <em>dramatically improves</em>
+ the quality of content and people involved. And let's be honest — free 
+content has its limitations: (1) Myself and other PyImageSearch Gurus 
+are willing to divulge more information in a private setting than we 
+should share on the open web. This means you get <em>exclusive information</em>
+ that you won't get anywhere else. (2) Private communities lead to 
+better relationships and outcomes. The PyImageSearch Gurus community is a
+ group of committed developers, researchers, and students — and I ensure
+ that by charging a fee. (3) Finally, the simplest point of all: <strong>Not everything is free, nor should it be.</strong>
+ Premium education, advice, and connections are valuable. If you don't 
+see it that way, that's totally cool...but you likely won't fit in here.</p>
+</li>
+<li class="one_half last">
+	<h4>If I start with the monthly membership, can I upgrade to the instant access membership?</h4>
+	<p><strong>Yes</strong>, you can absolutely start out with the monthly 
+membership and then upgrade to the instant access membership later on — 
+all you need to do is email me, let me know that you would like to 
+upgrade, and I'll take care of the upgrade for you.</p>
+	<p>That said, all upgrades should take place within the <strong>first 30 days</strong> of joining the PyImageSearch Gurus course to take advantage of the 15% annual discount. So if you would like to upgrade, <em>definitely let me know sooner rather than later!</em></p>
+</li>
+<li class="one_half">
+	<h4>What happens after I buy this course?</h4>
+	<p>After purchasing either the instant access or monthly membership to PyImageSearch Gurus, you'll <em>immediately</em>
+ be able to login to the course and access the course modules and 
+lessons, as well as access the PyImageSearch Gurus community + forums.</p>
+	<p>If you purchase the <em>instant access membership</em>, you'll have access to <em>all lessons immediately</em>. If you go with the <em>apprentice membership</em>, you'll have access to the first month's content.</p>
+</li>
+<li class="one_half last">
+	<h4>How many hours per week should I commit to PyImageSearch Gurus?</h4>
+	<p>The number of hours you should spend per week on the PyImageSearch Gurus course varies from student to student, but in general, <strong><em>the more time you put into the course, the more value you'll get out of it.</em></strong> I recommend spending <em>30-60 minutes per day</em> on the course, or a total of <em>5 hours per week</em>.
+ Think of it this way: if you can spend the time it takes you to drink 
+your morning coffee reading the lessons inside PyImageSearch Gurus, 
+you'll notice <strong>huge improvements</strong> in your computer vision knowledge.</p>
+</li>
+<li class="one_half">
+	<h4>Do I need any programming experience before enrolling in PyImageSearch Gurus?</h4>
+	<p>Yes, in order to be successful inside PyImageSearch Gurus, <strong>basic programming experience is a requirement</strong>. Previous experience in Python is certainly <em>recommended</em>, but is <strong>by no means a requirement</strong>. Simply put, if you know basic control statements such as <em>if</em>, <em>while</em>, and <em>for</em>, you likely already have enough experience to be successful inside the course.</p>
+</li>
+<li class="one_half last">
+	<h4>Do I need to know Python before joining the course?</h4>
+	<p>No, you do not need to know Python before joining PyImageSearch Gurus. Experience in Python is <em>recommended</em>, but <em>not a requirement</em>. You'll find that Python is a <em>very easy language to learn</em>,
+ and even if you do not have experience in Python, I'm confident that 
+just by reviewing the code examples in the course, you'll be able to 
+pick up the language quickly. If at any point you decide you need extra 
+help learning Python, exclusive discounts on the excellent 
+RealPython.com course are offered inside PyImageSearch Gurus to help you
+ level-up your Python coding skills.</p>
+</li>
+<li class="one_half">
+	<h4>Which versions of Python + OpenCV are used in the course?</h4>
+	<p>The PyImageSearch Gurus course supports <strong>OpenCV 2.4</strong> and <strong>OpenCV 3</strong> along with <strong>Python 2.7</strong> and <strong>Python 3</strong>.
+ Our most recent course update ensures that no matter which version of 
+Python + OpenCV you are using, we have you covered, and you'll easily be
+ able to follow along with the course.</p>
+</li>
+<li class="one_half last">
+	<h4>Do you support OpenCV 3 and Python 3?</h4>
+	<p>You bet! OpenCV 3 and Python 3 are supported inside the course.</p>
+</li>
+<li class="one_half">
+	<h4>Where can I learn more about you?</h4>
+	<p>I have authored <strong>over 125+ blog posts</strong> about computer vision, image processing, and OpenCV over at <a target="blank" href="https://www.pyimagesearch.com/">PyImageSearch.com</a>. Check out the posts to get a feel for my teaching and writing style. I also <em>highly suggest</em> that you <strong><a href="">sign up for your set of (free) PyImageSearch Gurus sample lessons</a></strong> using the form at the bottom-right corner of this page.</p>
+</li>
+<li class="one_half last">
+	<h4>I have another question.</h4>
+	<p>If you have any other questions, <a target="blank" href="https://www.pyimagesearch.com/contact/">please send me a message</a>, and I'll get back to you immediately.</p>
+</li>
+</ul>
+<!--End of Questions List-->
+
+</div>
+</section>
+<!--End of Questions-->
+
+<!--Start of 100% Satisifed-->
+<section id="satisfied">
+<div class="row" style="padding-top: 0px;">
+
+<!--Start of Questions Title-->
+<h2 class="section_title"><span>How I'll make sure you're <strong><em>100% satisfied</em></strong> with PyImageSearch Gurus.</span></h2>
+<!--End of Questions Title-->
+
+<div class="one_half">
+<img src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/money_back.jpg" alt="" style="padding-top: 20px;" width="350">
+</div>
+
+<div class="one_half last">
+<p>PyImageSearch Gurus is the course I <strong><em>wish</em></strong> I had when I first started learning computer vision and OpenCV over 6+ years ago.</p>
+<p>If you're interested in learning computer vision and want to equip 
+yourself with the knowhow to solve advanced computer vision problems 
+(and eventually land a job in the computer vision field), <strong><em>I designed this course for you.</em></strong></p>
+<p>I've also taken steps to ensure that each customer is accountable and
+ enjoys their time in PyImageSearch Gurus. I don't want you to pay me 
+and that be it. I want you to pay me and then make a <em>significant return</em>
+ on your investment, so I've included a followup accountability program 
+to help keep you on track and motivated to finish the PyImageSearch 
+Gurus course.</p>
+<p>Of course, I recognize that there isn't a "one-size-fits-all" 
+solution to anything. So if you do buy my course, go through it, do the 
+work, and feel like you haven't learned anything, then I don't want your
+ money. Just reply to your purchase receipt email within 30 days for a 
+full 100% money back guarantee.</p>
+</div>
+
+</div>
+</section>
+<!-- End of 100% Satisifed -->
+
+
+</div>
+</article><style id="wistia_19_style" type="text/css" class="wistia_injected_style">
+@font-face {
+font-family: 'WistiaPlayerOverpassNumbers';
+src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAARAQAABAAQRFNJRwAAAAEAAA7oAAAACEdQT1Ow+b/jAAAONAAAAKhHU1VCAAEAAAAADtwAAAAKT1MvMl1sVb8AAAe0AAAAYGNtYXAApwIpAAAIFAAAALJjdnQgAAAAAAAAClQAAAAEZnBnbUM+8IgAAAjIAAABCWdhc3AAGgAjAAAOJAAAABBnbHlmWNZE7QAAARwAAAXMaGVhZIS0XikAAAckAAAANmhoZWEF5gGwAAAHkAAAACRobXR4GNICwAAAB1wAAAA0bG9jYQi0CoYAAAcIAAAAHG1heHAAGQBKAAAG6AAAACBuYW1lGpIbcAAAClgAAAOPcG9zdAAPAKQAAA3oAAAAPHByZXBoUamTAAAJ1AAAAH8ACgBd/wYBmgLuAAMADwAVABkAIwApADUAOQA9AEgAAAUhESEHFTMVIxUzNSM1MzUHFTM1IzUHIzUzBxUzFSMVMzUzNQcVIxUzNQcVMzUzFSM1IxUzNQcVMzUHIzUzBxUzBxUzNSM3MzUBmv7DAT3yQUKmQkKmpkIiISFCQkJkQiGFpmQiIWQhpqamIWRkhUZGpmZGIPoD6EMhJSEhJSGBaCJGRiRhISUhRiE8QiJkejgXL1Bxca1xcVAvZyEvISEvIQAAAAIARv/0AiYCyAAVACUAAAQ3Njc2NTQmJyYjIgcGBwYVFBYXFjMmJyY1NDc2MzIXFhUUBwYjAY87MRgTGRo/flo7LxkTGRs9f1wqIR8pX1oqIR4pXgw9M1tJVkOAMnU9MV1IV0Z/MXQ/X0qCeUxmX0uBfEplAAAAAAEAKAAAAOUCvAAIAAATIwYGIxUzETPlLRBHOXdGArwwJyj9wwAAAAABAEcAAAISAsgAJAAAJSE2Nz4CNzY2NzY1NCYjIgcGBxc2MzIWFRQHBgcHBgYHBhUhAhL+fwszEjIhCDBDG0J0Z1c+OhE+HX9HUTMjUhMrOhhEActDPTARJRYFHjAcRFRbaisoQRxxSzs8NSM2DR0uHFJzAAEAMv/0AggCyAA0AAAENjc2NjU0Jic2NjU0JicmJiMiBwYHFzY3NjMyFhcWFRQGIyMVMzIWFRQHBiMiJicHFhcWMwFJViIiJT83Ki8fHBxMKlM7MRpBFR8rPBkvEidLPyUvS1EwLEg+TxpBGzM6YAwfGxxLK0RiFhdSMCdDGBcaLiZAGS4aJBEQIjk6RUBMQkIlIjxCG0spMAAAAAIAHgAAAiICvAAKAA0AACUzNSMRIwEVIRUzAxEjAbhqair+kAFURkb5vTwBw/4mJb0CQ/62AAAAAQBG//QCLgK8AC0AADYWFxYzMjY3NjY1NCYnJiYjIgYHNyE1IQMXNjc2MzIXFhYVFAYHBgYjIicmJwdTLh1ETjpfIyAiIx8fUy4tVCAoASz+nDk7FykzN0QuFBccGBlEJkIuKiQpPB8MHSkjIVUtMVMfHSEeHfQ//pUSGxIWMRc+IiE+GBgbFxUkMwACADz/9AIEAsgAIQA2AAAENjc2NjU0JicmJiMiBgc2Njc2Njc1BgYHBgYVFBYXFhYzEhcWFRQGBwYjIiYnJiY1NDY3NjYzAVFSHx8jIBwdTCo2UxoIMiUlWzFKhDExNh4dHlc4RS0rFxUsSCE7FRYZGBUVOyMMJB8gVTAnTh4fJCEfLFkoKDsPNxJaPz+RSjpjIyYpAYAtLUgiOhUuGBYVOyEjPBYVGAABACgAAAHLArwADAAANjc2NzUhFSEGBwYHM+ooN4L+XQFTdzMrAkamjsSWLjyXqIq3AAAAAwBG//QCEALIACMALwBCAAAABgcGBhUUFhcGBwYVFBYXFjMyNjc2NjU0Jic2NjU0JicmJiMCJjU0NjMyFhUUBiMCJyY1NDY3NjYzMhcWFhUUBwYjAQJJGxoeMCw1JCMiH0JiMFUfHyJEOS4vHhobSSk5RUc3N0dFOUQrLRYVFToiRC4UFi0rRALIHRkZQiQuThQTNTRCLE0cPCAcHE0sQmcVE04vJEIZGR3+0D8zOkVFOjM//pspK0gfOBYWGC4WOB9IKykAAAACADz/9AIEAsgAIAA0AAASBgcGBhUUFhcWFjMyNjcGBgcGBgcVNjY3NjY1NCYnJiMCJyY1NDc2MzIWFxYWFRQGBwYGI/RUICAkIBwbTCo3VRoGLCMkWDJKfy8uMhwbPG1NLSssLUchOxYWGBgVFTsjAsgjIB9WMClNHh4iIyEtXCgpPA83Elo/PpJKOWMlTv58Ly1IRC4vGRYWOyEjPBYWGQAAAAIAMv/yALAB4wALABcAABI2NTQmIyIGFRQWMxI2NTQmIyIGFRQWM4slJRoaJSUaGiUlGholJRoBZSYZGSYmGRkm/o0mGRkmJhkZJgABAAAADQBJAAoAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAYgBiAJ4AsgDsAToBVgGcAfACCgJuAsAC5gABAAAAARmZfAtXkV8PPPUAAwPoAAAAAE2yzjUAAAAA1Z4zgwAe/wYCLgLuAAAABwACAAAAAAAAAfQAXQAAAAACbABGAU4AKAJYAEcCTgAyAksAHgJ0AEYCSgA8AfMAKAJWAEYCSgA8AOIAMgABAAADtv8GAAACdAAAACgCLgABAAAAAAAAAAAAAAAAAAAADQADAhYBkAAFAAgCigJYAAAASwKKAlgAAAFeABQBMgAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABERUxWAEAAIAA6Au7/BgEKA7YA+gAAAAEAAAAAAf8CvAAAACAAAgAAAAMAAAADAAAAigABAAAAAAAcAAMAAQAAAIoABgBuAAAACQAyAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAwAEAAUABgAHAAgACQAKAAsADAAEACgAAAAGAAQAAQACACAAOv//AAAAIAAw////4f/SAAEAAAAAAAAAALAALEAOBQYHDQYJFA4TCxIIERBDsAEVRrAJQ0ZhZEJDRUJDRUJDRUJDRrAMQ0ZhZLASQ2FpQkNGsBBDRmFksBRDYWlCQ7BAUHmxBkBCsQUHQ7BAUHmxB0BCsxAFBRJDsBNDYLAUQ2CwBkNgsAdDYLAgYUJDsBFDUrAHQ7BGUlp5swUFBwdDsEBhQkOwQGFCsRAFQ7ARQ1KwBkOwRlJaebMFBQYGQ7BAYUJDsEBhQrEJBUOwEUNSsBJDsEZSWnmxEhJDsEBhQrEIBUOwEUOwQGFQebIGQAZDYEKzDQ8MCkOwEkOyAQEJQxAUEzpDsAZDsApDEDpDsBRDZbAQQxA6Q7AHQ2WwD0MQOi0AAACxAAAAQrE7AEOwAFB5uP+/QBAAAQAAAwQBAAABAAAEAgIAQ0VCQ2lCQ7AEQ0RDYEJDRUJDsAFDsAJDYWpgQkOwA0NEQ2BCHLEtAEOwAVB5swcFBQBDRUJDsF1QebIJBUBCHLIFCgVDYGlCuP/NswABAABDsAVDRENgQhy4LQAdAAAAAAAAAAASAN4AAQAAAAAAAQAWAAAAAQAAAAAAAgAFABYAAQAAAAAAAwAnABsAAQAAAAAABAAcAEIAAQAAAAAABQAPAF4AAQAAAAAABgAcAG0AAQAAAAAACQAgAIkAAQAAAAAACgA4AKkAAwABBAkAAQA4AOEAAwABBAkAAgAOARkAAwABBAkAAwBOAScAAwABBAkABAA4AXUAAwABBAkABQAeAa0AAwABBAkABgA4AXUAAwABBAkACQBAAcsAAwABBAkACgBwAgsAAwABBAkAEAAsAnsAAwABBAkAEQAKAqdXaXN0aWEtUGxheWVyLU92ZXJwYXNzTGlnaHQxLjEwMDtERUxWO1dpc3RpYS1QbGF5ZXItT3ZlcnBhc3MtTGlnaHRXaXN0aWEtUGxheWVyLU92ZXJwYXNzIExpZ2h0VmVyc2lvbiAxLjAzMTAwV2lzdGlhLVBsYXllci1PdmVycGFzcy1MaWdodERlbHZlIFdpdGhyaW5ndG9uLCBUaG9tYXMgSm9ja2luQ29weXJpZ2h0IChjKSAyMDE0IGJ5IFJlZCBIYXQsIEluYy4gQWxsIHJpZ2h0cyByZXNlcnZlZC4AVwBpAHMAdABpAGEALQBQAGwAYQB5AGUAcgAtAE8AdgBlAHIAcABhAHMAcwAgAEwAaQBnAGgAdABSAGUAZwB1AGwAYQByADEALgAxADAAMAA7AEQARQBMAFYAOwBXAGkAcwB0AGkAYQAtAFAAbABhAHkAZQByAC0ATwB2AGUAcgBwAGEAcwBzAC0ATABpAGcAaAB0AFcAaQBzAHQAaQBhAC0AUABsAGEAeQBlAHIALQBPAHYAZQByAHAAYQBzAHMALQBMAGkAZwBoAHQAVgBlAHIAcwBpAG8AbgAgADEALgAwADMAMQAwADAARABlAGwAdgBlACAAVwBpAHQAaAByAGkAbgBnAHQAbwBuACwAIABUAGgAbwBtAGEAcwAgAEoAbwBjAGsAaQBuAEMAbwBwAHkAcgBpAGcAaAB0ACAAKABjACkAIAAyADAAMQA0ACAAYgB5ACAAUgBlAGQAIABIAGEAdAAsACAASQBuAGMALgAgAEEAbABsACAAcgBpAGcAaAB0AHMAIAByAGUAcwBlAHIAdgBlAGQALgBXAGkAcwB0AGkAYQAtAFAAbABhAHkAZQByAC0ATwB2AGUAcgBwAGEAcwBzAEwAaQBnAGgAdAAAAgAAAAAAAP+FABQAAAAAAAAAAAAAAAAAAAAAAAAAAAANAAAAAwATABQAFQAWABcAGAAZABoAGwAcAB0AAQADAAcACgATAAf//wAPAAEAAAAKAB4ALAABREZMVAAIAAQAAAAA//8AAQAAAAFrZXJuAAgAAAABAAAAAQAEAAIAAAABAAgAAQBmAAQAAAAIABoAIAAmADAAOgBIAFIAYAABAAb/7AABAAb/9gACAAn/9gAL//EAAgAJ//YAC//xAAMABP/7AAn/9gAL//YAAgAJ/+wAC//dAAMABv+6AAj/4gAJACMAAQAJ//YAAgABAAMACgAAAAEAAAAAAAAAAAAAAAAAAQAAAAA=);
+}
+</style>
+<!--End of Main Content-->
+
+<!--Start of Landing Page Footer-->
+<footer role="contentinfo" class="background_grey">
+<div id="page_footer" class="row">
+<ul>
+<li><a href="https://www.pyimagesearch.com/">Home</a></li>
+<li><a href="https://www.pyimagesearch.com/about/">About</a></li>
+<li><a href="https://www.pyimagesearch.com/contact/">Contact</a></li>
+</ul>
+
+<p>
+© 2018 PyImageSearch. All Rights Reserved.
+</p>
+</div>
+</footer>
+<!--End of Landing Page Footer-->
+
+<!-- Included JS Files (Compressed) -->
+
+
+
+<script type="text/javascript" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/85c7d.js"></script>
+ 
+
+
+
+
+<script type="text/javascript">
+function getQueryParams(){
+    // initialize the list of query variables and grab
+    // the hashes
+    var vars = [];
+    var hashes = window.location.href.slice(window.location.href.indexOf("?") + 1).split("&");
+
+    // loop over the hashes
+    for (i = 0; i < hashes.length; i++){
+        // parse out the hash value
+        hash = hashes[i].split("=");
+        vars.push(hash[0])
+        vars[hash[0]] = hash[1];
+    }
+
+    // return the query parameter mappings
+    return vars;
+}
+
+// wait until the document is ready
+$(document).ready(function(){
+    // handle when the join buttons are clicked
+    $(".join_the_course").click(function(event){
+        // prevent the default event from firing
+        event.preventDefault();
+
+        // scroll to the pricing section
+        $("html, body").animate({
+            "scrollTop": $("#pricing").offset().top}, 1000);
+    });
+
+    // handle when the signup links are clicked
+    $(".signup_link").click(function(event){
+        // prevent the default event from firing,
+        // then grab the href of the link and the
+        // product
+        event.preventDefault();
+        product = $(this).attr("data-product");
+        href = $(this).attr("href");
+
+		// determine the Drip event
+		dripTag = product.split("_");
+
+		// check to see if this is the "instant access
+		// membership"
+		if (dripTag[0] == "instant"){
+			dripTag = "clicked instant access membership";
+		}
+
+		// otherwise, this is the "apprentice membership"
+		else{
+			dripTag = "clicked apprentice membership";
+		}
+
+		// send the tag to Drip
+		window._dcq = window._dcq || [];
+		window._dcq.push(["identify", {"tags": [dripTag]}]);
+
+		// retargeting
+		window._pq = window._pq || [];;
+		_pq.push(["track", "gurus_add_to_cart"]);
+
+        // grab the query parameters, then initialize the
+        // email address
+        params = getQueryParams();
+        email = "";
+
+        // if the email address is set, grab it
+        if (params["email"]){
+            email = decodeURIComponent(params["email"]);
+        }
+
+        // construct the URL to track the click
+        url = "https://www.pyimagesearch.com/static/app/cart_tracker/track/";
+        url += "?email=" + email + "&product=" + product;
+
+        // track the click
+        $.ajax({
+            "type": "POST",
+            "url": url,
+            "async": false,
+            "dataType": "json",
+            "success": function(data){
+                // change location to the provided href
+                document.location = href;
+		}});
+    });
+});
+</script>
+
+<script type="text/javascript">
+  (function() {
+    window._pa = window._pa || {};
+    // _pa.orderId = "myOrderId"; // OPTIONAL: attach unique conversion identifier to conversions
+    // _pa.revenue = "19.99"; // OPTIONAL: attach dynamic purchase values to conversions
+    // _pa.productId = "myProductId"; // OPTIONAL: Include product ID for use with dynamic ads
+    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.perfectaudience.com/serve/54220efd7ab7f03f7e000043.js";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+  })();
+</script>
+
+<!-- HitTail Code -->
+<script type="text/javascript">
+    (function(){ var ht = document.createElement('script');ht.async = true;
+      ht.type='text/javascript';ht.src = '//115962.hittail.com/mlt.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ht, s);})();
+</script>
+
+<!-- Drip -->
+<script type="text/javascript">
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {}; 
+  _dcs.account = '4768429';
+  
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true; 
+    dc.src = '//tag.getdrip.com/4768429.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+
+<!-- Optin Monster -->
+<div id="om-kizfm1tpclo79dji-holder"><script type="text/javascript">if(!(window.ga&&ga.create)){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','__omGaTracker');}</script></div>
+<script>var kizfm1tpclo79dji,kizfm1tpclo79dji_poll=function(){var r=0;return function(n,l){clearInterval(r),r=setInterval(n,l)}}();!function(e,t,n){if(e.getElementById(n)){kizfm1tpclo79dji_poll(function(){if(window['om_loaded']){if(!kizfm1tpclo79dji){kizfm1tpclo79dji=new OptinMonsterApp();return kizfm1tpclo79dji.init({"u":"18464.358677","staging":0,"dev":0,"beta":0});}}},25);return;}var d=false,o=e.createElement(t);o.id=n,o.src="//a.optnmnstr.com/app/js/api.min.js",o.onload=o.onreadystatechange=function(){if(!d){if(!this.readyState||this.readyState==="loaded"||this.readyState==="complete"){try{d=om_loaded=true;kizfm1tpclo79dji=new OptinMonsterApp();kizfm1tpclo79dji.init({"u":"18464.358677","staging":0,"dev":0,"beta":0});o.onload=o.onreadystatechange=null;}catch(t){}}}};(document.getElementsByTagName("head")[0]||document.documentElement).appendChild(o)}(document,"script","omapi-script");</script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46641058-1', 'pyimagesearch.com');
+  ga('send', 'pageview');
+</script>
+
+
+<div id="galleryOverlay" style="display: none;"><div id="gallerySlider"></div><div id="imageTitle"></div><a id="prevArrow"></a><a id="nextArrow"></a></div><div class="drip-tab-container">
+  <div id="drip-15102" class="drip-tab bottom right no-image">
+    <div id="drip-header-15102" class="drip-header drip-hidden">
+      <a href="#" id="drip-toggle-15102" class="drip-toggle">
+        <h2 id="drip-teaser-15102">FREE PyImageSearch Gurus Course Syllabus</h2>
+        <span id="drip-tab-up-15102" class="drip-arrow up">
+          <svg width="12px" height="8px" viewBox="1362 659 12 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+            <polygon id="right_angle" stroke="none" fill="#FFFFFF" fill-rule="evenodd" transform="translate(1368.000000, 662.703125) rotate(-90.000000) translate(-1368.000000, -662.703125) " points="1364.29688 667.296875 1368.89062 662.703125 1364.29688 658.109375 1365.70312 656.703125 1371.70312 662.703125 1365.70312 668.703125"></polygon>
+          </svg>
+        </span>
+        <span id="drip-tab-down-15102" class="drip-arrow down" style="display: none"></span>
+      </a>
+    </div>
+
+    <div id="drip-content-15102" class="drip-content drip-clearfix" style="height: auto; bottom: 0px;">
+      <div id="drip-form-panel-15102" class="drip-panel" style="display: block;">
+        <a id="drip-close-15102" class="drip-close">×</a>
+        <h3 id="drip-content-header-15102">FREE PyImageSearch Gurus Course Syllabus</h3>
+        <div id="drip-scroll-15102" class="drip-scroll">
+          <div class="drip-clearfix">
+            
+            <div class="drip-description">Enter your email address below
+ to grab your (FREE) PyImageSearch Gurus Course Syllabus. I'll also send
+ you a sneak peek of 10 actual lessons from the course in this 6-part 
+email tour. Sound good? Enter email address below to get started.</div>
+          </div>
+          <form id="drip-form-15102">
+            <div style="display: none">
+              <input name="form_id" value="15102" type="hidden">
+            </div>
+            <dl class="no-labels">
+              
+                <dt>First Name</dt>
+                <dd class="drip-clearfix">
+                  
+                    <input name="fields[first_name]" placeholder="First Name" class="drip-text-field" type="text">
+                    <div id="drip-errors-for-custom-fields-first-name-15102" class="drip-errors"></div>
+                  
+                </dd>
+              
+                <dt>Email Address</dt>
+                <dd class="drip-clearfix">
+                  
+                    <input name="fields[email]" placeholder="Email Address" class="drip-text-field" type="email">
+                    <div id="drip-errors-for-email-15102" class="drip-errors"></div>
+                  
+                </dd>
+              
+            </dl>
+            <div class="form-controls">
+              <input name="submit" value="Send me my syllabus!" id="drip-submit-15102" class="drip-submit-button" type="submit">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="drip-success-panel-15102" class="drip-success drip-panel drip-clearfix" style="display: none">
+        <a id="drip-hide-15102" class="drip-close">×</a>
+        <h3>Almost There...</h3>
+        <p class="drip-description">IMPORTANT: There's been high demand 
+for the PyImageSearch Gurus course, so to confirm your email address and
+ grab your FREE course syllabus + 10 sample lessons, I need you to 
+please confirm your email address by clicking the link in the email I 
+just sent you.</p>
+      </div>
+
+      
+    </div>
+  </div>
+</div><div id="om-kizfm1tpclo79dji" class="nashville-background nashville-kizfm1tpclo79dji nashville-optin-visible nashville-has-image nashville-lightbox nashville-bullseye" style="display: none; position: fixed; z-index: 888888888; top: 0px; left: 0px; width: 100%; height: 100%; margin: 0px; padding: 0px;"><style type="text/css" class="nashville-template-styles">html div#om-kizfm1tpclo79dji *,html div#om-kizfm1tpclo79dji *:before,html div#om-kizfm1tpclo79dji *:after{box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box}html div#om-kizfm1tpclo79dji{background:none;border:0;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0;float:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;height:auto;letter-spacing:normal;outline:none;position:static;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;width:auto;visibility:visible;overflow:visible;margin:0;padding:0;line-height:1;font-family:helvetica,arial,sans-serif;-webkit-box-shadow:none;-moz-box-shadow:none;-ms-box-shadow:none;-o-box-shadow:none;box-shadow:none;-webkit-appearance:none;font-style:normal}html div#om-kizfm1tpclo79dji .nashville-clearfix,html div#om-kizfm1tpclo79dji .nashville-yesno-clearfix,html div#om-kizfm1tpclo79dji .nashville-success-clearfix{clear:both}html div#om-kizfm1tpclo79dji .nashville-clearfix:after,html div#om-kizfm1tpclo79dji .nashville-yesno-clearfix:after,html div#om-kizfm1tpclo79dji .nashville-success-clearfix:after{clear:both;content:".";display:block;height:0;line-height:0;overflow:auto;visibility:hidden;zoom:1}html div#om-kizfm1tpclo79dji .nashville-element-row,html div#om-kizfm1tpclo79dji .nashville-yesno-element-row,html div#om-kizfm1tpclo79dji .nashville-success-element-row{margin-left:auto;margin-right:auto;zoom:1;width:100%}html div#om-kizfm1tpclo79dji .nashville-element-row:before,html div#om-kizfm1tpclo79dji .nashville-yesno-element-row:before,html div#om-kizfm1tpclo79dji .nashville-success-element-row:before,html div#om-kizfm1tpclo79dji .nashville-element-row:after,html div#om-kizfm1tpclo79dji .nashville-yesno-element-row:after,html div#om-kizfm1tpclo79dji .nashville-success-element-row:after{display:table;content:" "}html div#om-kizfm1tpclo79dji .nashville-element-row:after,html div#om-kizfm1tpclo79dji .nashville-yesno-element-row:after,html div#om-kizfm1tpclo79dji .nashville-success-element-row:after{clear:both}html div#om-kizfm1tpclo79dji .nashville-element-row-wrap,html div#om-kizfm1tpclo79dji .nashville-yesno-element-row-wrap,html div#om-kizfm1tpclo79dji .nashville-success-element-row-wrap{position:relative;margin:0}html div#om-kizfm1tpclo79dji .nashville-element-row-content,html div#om-kizfm1tpclo79dji .nashville-yesno-element-row-content,html div#om-kizfm1tpclo79dji .nashville-success-element-row-content{margin-left:auto;margin-right:auto}html div#om-kizfm1tpclo79dji .nashville-element-image,html div#om-kizfm1tpclo79dji .nashville-yesno-element-image,html div#om-kizfm1tpclo79dji .nashville-success-element-image{position:relative}html div#om-kizfm1tpclo79dji .nashville-element-image img,html div#om-kizfm1tpclo79dji .nashville-yesno-element-image img,html div#om-kizfm1tpclo79dji .nashville-success-element-image img{height:auto;max-width:100%;display:block}html div#om-kizfm1tpclo79dji .om-close,html div#om-kizfm1tpclo79dji .nashville-close,html div#om-kizfm1tpclo79dji .nashville-yesno-close,html div#om-kizfm1tpclo79dji .nashville-success-close{cursor:pointer}html div#om-kizfm1tpclo79dji.nashville-yesno-active .om-close,html div#om-kizfm1tpclo79dji.nashville-yesno-active .nashville-close,html div#om-kizfm1tpclo79dji.nashville-yesno-active .nashville-yesno-close{display:none}html div#om-kizfm1tpclo79dji .nashville-form label{color:#484848}html div#om-kizfm1tpclo79dji .nashville-form input,html div#om-kizfm1tpclo79dji .nashville-form select,html div#om-kizfm1tpclo79dji .nashville-form textarea{background-color:#fff;width:100%;border:1px solid #ccc;font-size:16px;line-height:24px;padding:10px 6px;overflow:hidden;outline:none;margin:0;vertical-align:middle;height:32px;font-style:normal}html div#om-kizfm1tpclo79dji .nashville-form textarea{height:60px}html div#om-kizfm1tpclo79dji .nashville-form input[type=submit],html div#om-kizfm1tpclo79dji .nashville-form button,html div#om-kizfm1tpclo79dji .nashville-yesno-form button,html div#om-kizfm1tpclo79dji .nashville-success-form button{background:#484848;border:1px solid #484848;width:100%;color:#fff;font-size:20px;padding:12px 6px;line-height:28px;text-align:center;vertical-align:middle;cursor:pointer;margin:0;height:36px;font-style:normal}html div#om-kizfm1tpclo79dji .nashville-form input[type=checkbox],html div#om-kizfm1tpclo79dji .nashville-form input[type=radio]{width:auto!important;outline:invert none medium;padding:0;margin:0;height:auto!important;box-shadow:none;-webkit-box-shadow:none;-moz-box-shadow:none;display:inline}html div#om-kizfm1tpclo79dji .nashville-form input[type=checkbox]{-webkit-appearance:checkbox}html div#om-kizfm1tpclo79dji .nashville-form input[type=radio]{-webkit-appearance:radio}html div#om-kizfm1tpclo79dji .nashville-form .nashville-button-yes,html div#om-kizfm1tpclo79dji .nashville-yesno-form .nashville-yesno-button-yes,html div#om-kizfm1tpclo79dji .nashville-success-form .nashville-success-button-yes{margin-bottom:15px}html div#om-kizfm1tpclo79dji .nashville-form-horizontal .nashville-button-yes,html div#om-kizfm1tpclo79dji .nashville-yesno-form-horizontal .nashville-yesno-button-yes,html div#om-kizfm1tpclo79dji .nashville-success-form-horizontal .nashville-success-button-yes{margin-bottom:0;margin-right:2%}html div#om-kizfm1tpclo79dji .nashville-form .nashville-button-no,html div#om-kizfm1tpclo79dji .nashville-yesno-form .nashville-yesno-button-no,html div#om-kizfm1tpclo79dji .nashville-success-form .nashville-success-button-no{background-color:#666;border-color:#666;margin-bottom:0}html div#om-kizfm1tpclo79dji .nashville-form-horizontal .nashville-button-no,html div#om-kizfm1tpclo79dji .nashville-yesno-form-horizontal .nashville-yesno-button-no,html div#om-kizfm1tpclo79dji .nashville-success-form-horizontal .nashville-success-button-no{margin-right:0}html div#om-kizfm1tpclo79dji .nashville-form-horizontal button,html div#om-kizfm1tpclo79dji .nashville-yesno-form-horizontal button,html div#om-kizfm1tpclo79dji .nashville-success-form-horizontal button{width:49%!important;max-width:none!important}html div#om-kizfm1tpclo79dji .nashville-form-horizontal.nashville-has-button button,html div#om-kizfm1tpclo79dji .nashville-yesno-form-horizontal.nashville-yesno-has-button button,html div#om-kizfm1tpclo79dji .nashville-success-form-horizontal.nashville-success-has-button button{width:50%!important;display:block;margin:0 auto}html div#om-kizfm1tpclo79dji .nashville-segments{margin:0 0 15px}html div#om-kizfm1tpclo79dji .nashville-segments-horizontal{margin:15px 0 0}html div#om-kizfm1tpclo79dji .nashville-segments .nashville-segments-title{font-size:16px;display:block;line-height:1}html div#om-kizfm1tpclo79dji .nashville-segments-horizontal .nashville-segments-title{display:inline-block;margin-right:10px}html div#om-kizfm1tpclo79dji .nashville-segments .nashville-segments-wrap{margin-top:5px}html div#om-kizfm1tpclo79dji .nashville-segments-horizontal .nashville-segments-wrap{display:inline-block;margin-top:0}html div#om-kizfm1tpclo79dji .nashville-segments .nashville-segment-choice{display:inline-block;margin:0 10px 6px 0;vertical-align:middle}html div#om-kizfm1tpclo79dji .nashville-segments label{font-size:12px;margin-left:4px;vertical-align:middle;line-height:12px}html div#om-kizfm1tpclo79dji .nashville-element-privacy,html div#om-kizfm1tpclo79dji .nashville-yesno-element-privacy,html div#om-kizfm1tpclo79dji .nashville-success-element-privacy{color:#888;font-size:12px;font-family:'Open Sans',sans-serif;text-align:center;margin-top:10px;line-height:1}html div#om-kizfm1tpclo79dji .nashville-body,html div#om-kizfm1tpclo79dji .nashville-yesno-container,html div#om-kizfm1tpclo79dji .nashville-success-container{position:relative;height:100%;transition:opacity .5s ease-in-out;-webkit-transition:opacity .5s ease-in-out;-moz-transition:opacity .5s ease-in-out;-o-transition:opacity .5s ease-in-out;opacity:1}html div#om-kizfm1tpclo79dji .nashville-transition-hidden{opacity:0!important;height:0!important;min-height:0!important;max-height:0!important;overflow:hidden!important;padding:0!important;margin:0!important;border-width:0!important;border-style:none!important;position:relative}html div#om-kizfm1tpclo79dji .nashville-link.link-type-button,html div#om-kizfm1tpclo79dji .nashville-success-link.link-type-button{display:inline-block;padding:20px;text-align:center;text-decoration:none;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;font-weight:700;font-size:18px;color:#fff;line-height:1;margin-bottom:25px}html div#om-kizfm1tpclo79dji{background:rgb(0,0,0);background:rgba(0,0,0,.7);width:100%;height:100%}html div#om-kizfm1tpclo79dji #om-lightbox-bullseye-optin,html div#om-kizfm1tpclo79dji .nashville-outer-wrap{background:#fff;display:none;position:absolute;top:50%;left:50%;min-height:175px;max-width:700px;width:100%;z-index:734626274}html div#om-kizfm1tpclo79dji .nashville-outer-wrap{max-width:714px!important}html div#om-kizfm1tpclo79dji .nashville-body{border:7px solid #000}html div#om-kizfm1tpclo79dji .nashville-close{position:absolute;top:-19px;right:-19px;text-decoration:none!important;display:block;width:35px;height:35px;background:url("https://a.optnmnstr.com/app/images/close.png") no-repeat scroll 0 0;z-index:1500}html div#om-kizfm1tpclo79dji .nashville-content{max-width:700px;width:100%;position:relative;margin:0;padding:0}html div#om-kizfm1tpclo79dji .nashville-image{position:relative;max-width:700px;margin:0 auto}html div#om-kizfm1tpclo79dji .nashville-image img{display:block;margin:0 auto;text-align:center;height:auto;max-width:100%}html div#om-kizfm1tpclo79dji .nashville-footer{background:#e9e9e9;border-top:1px solid #bbb;padding:30px 20px}html div#om-kizfm1tpclo79dji .nashville-form input,html div#om-kizfm1tpclo79dji .nashville-form select,html div#om-kizfm1tpclo79dji .nashville-form button{display:inline;max-width:225px;height:36px;border:1px solid #ccc;padding:6px;margin:0 10px 0 0}html div#om-kizfm1tpclo79dji .nashville-form.nashville-has-email input[type=email]{max-width:460px}html div#om-kizfm1tpclo79dji .nashville-form input[type=submit],html div#om-kizfm1tpclo79dji .nashville-form button{display:inline;max-width:190px;font-size:16px;padding:6px;margin-right:0;line-height:24px}html div#om-kizfm1tpclo79dji .nashville-success-container{min-height:300px}html div#om-kizfm1tpclo79dji .nashville-success-close{font-size:32px!important;font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif!important;color:#282828!important;font-weight:300!important;position:absolute!important;top:0px!important;right:10px!important;background:none!important;text-decoration:none!important;width:auto!important;height:auto!important;display:block!important;line-height:32px!important;padding:0!important;z-index:99999}html div#om-kizfm1tpclo79dji .nashville-success-content{position:absolute;width:100%;height:100%}html div#om-kizfm1tpclo79dji .nashville-success-element-title{font-size:21px;font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;color:#282828;font-weight:300;text-align:center;margin:0 auto;padding:0 15px;position:relative;top:50%;transform:translateY(-50%)}@media (min-width:1px) and (max-width:700px){html div#om-kizfm1tpclo79dji .nashville-outer-wrap[style]{position:relative!important;width:100%!important;left:0!important}html div#om-kizfm1tpclo79dji .nashville-form input,html div#om-kizfm1tpclo79dji .nashville-form select,html div#om-kizfm1tpclo79dji .nashville-form textarea,html div#om-kizfm1tpclo79dji .nashville-form.nashville-has-email input[type=email],html div#om-kizfm1tpclo79dji .nashville-form input[type=submit],html div#om-kizfm1tpclo79dji .nashville-form button,html div#om-kizfm1tpclo79dji .nashville-form-horizontal.nashville-has-button button,html div#om-kizfm1tpclo79dji button{float:none;width:100%;max-width:100%;margin-right:0}html div#om-kizfm1tpclo79dji .nashville-form .nashville-field-name,html div#om-kizfm1tpclo79dji .nashville-form .nashville-field-email,html div#om-kizfm1tpclo79dji .nashville-form .nashville-button-yes{margin-bottom:15px}}@media (min-width:1px) and (max-width:700px){html div#om-kizfm1tpclo79dji .nashville-yesno-form button,html div#om-kizfm1tpclo79dji .nashville-yesno-form-horizontal.nashville-yesno-has-button button{float:none;width:100%;max-width:100%;margin-right:0}html div#om-kizfm1tpclo79dji .nashville-yesno-form .nashville-yesno-button-yes{margin-bottom:15px}}@media (min-width:1px) and (max-width:700px){html div#om-kizfm1tpclo79dji .nashville-close{right:0}}@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min--moz-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2/1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){html div#om-kizfm1tpclo79dji .nashville-close{background-image:url("https://a.optnmnstr.com/app/images/close@2x.png");background-size:35px 35px}}</style><div id="nashville-optin" class="nashville-clearfix nashville-outer-wrap" style=""><div id="nashville-body" class="nashville-element-row nashville-element-row-global nashville-body" data-selectable="true" data-target="#builder-setting-bg_border" style="border-color:#59a800;"><a class="nashville-element-close nashville-close" title="Close" style=""></a><div id="nashville-content" class="nashville-clearfix nashville-content"><div id="nashville-element-image" class="nashville-element-image nashville-element" data-element="image"><div id="nashville-image" class="nashville-image" data-image-id="main" data-context="lightbox" data-theme="bullseye"><img class="nashville-element-image-output" src="PyImageSearch%20Gurus:%20Computer%20Vision%20and%20OpenCV%20Course_files/109a617cd01c1466874666-GurusTourOptinV3.png" alt="109a617cd01c1466874666-GurusTourOptinV3.png" data-image-id="main" data-context="lightbox" data-theme="bullseye"></div></div></div><div id="nashville-footer" class="nashville-clearfix nashville-footer" data-selectable="true" data-target="#builder-setting-footer_bg" style="background-color:#e9e9e9;border-top-color:#bbbbbb;"><div id="nashville-element-form" class="nashville-element-form nashville-element" data-element="form"><div id="nashville-form" class="nashville-form nashville-has-name-email nashville-form-horizontal nashville-has-buttons"><div class="nashville-form-wrap"><input id="nashville-field-name" name="nashville-name" data-selectable="true" data-target="#builder-setting-name_value" class="nashville-field-name" placeholder="Enter your first name..." style="color:#484848;font-family:Open Sans;" type="text"><input id="nashville-field-email" name="nashville-email" data-selectable="true" data-target="#builder-setting-email_value" class="nashville-field-email" placeholder="Enter your email address..." style="color:#484848;font-family:Open Sans;" type="email"><input id="nashville-field-submit" name="nashville-submit" data-selectable="true" data-target="#builder-setting-submit_value" class="nashville-field-submit" value="SEND ME MY SYLLABUS" style="color:#ffffff;background:#eb4946;border-color:#eb4946;font-family:Bree Serif;opacity:;" type="submit"></div><div class="nashville-yesno-wrap" style="display:none"><button id="nashville-button-yes" type="button" name="nashville-yes" data-selectable="true" data-target="#builder-setting-yes_value" data-action="form" data-type="yes" class="nashville-button-yes nashville-button-yesno" title="Yes, I Want Access!" style="color:#ffffff;background:#83c11f;border-color:#83c11f;font-family:Bree Serif;opacity:;">Yes, I Want Access!</button><button id="nashville-button-no" type="button" name="nashville-no" data-selectable="true" data-target="#builder-setting-no_value" data-action="close" data-type="no" class="nashville-button-no nashville-button-yesno" title="No Thanks" style="color:#ffffff;background:#666666;border-color:#666666;font-family:Bree Serif;opacity:;">No Thanks</button></div></div></div></div></div><div id="nashville-success-container" class="nashville-success-container nashville-transition-hidden nashville-success-theme-default"></div></div><!--[if lte IE 9]><script type="text/javascript">var om_ie_browser = true;</script><![endif]--></div></body></html>
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 1277/19 objects using disk
+Page Caching using disk: enhanced 
+Minified using disk
+Database Caching using disk
+
+Served from: www.pyimagesearch.com @ 2018-04-17 10:31:33 by W3 Total Cache
+-->
